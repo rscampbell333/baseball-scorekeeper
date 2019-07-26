@@ -14,8 +14,10 @@
     margin: 0 0 0 5px;
 }
 
-input {
+input[type="text"] {
     width: 100%;
+    box-sizing: border-box;
+    height: 100%;
 }
 
 .noValue {
