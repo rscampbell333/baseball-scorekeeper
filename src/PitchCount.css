@@ -1,0 +1,15 @@
+.pitchBox {
+    width: .5em;
+    height: .5em;
+    border: 1px solid;
+    margin: 2px;
+}
+
+.flexbox {
+    display: flex;
+    flex-direction: row;
+}
+
+.pitchBox.reached {
+    background: black;
+}

@@ -1,0 +1,14 @@
+import React, { Component } from 'react'
+
+export class Dropdown extends Component {
+    
+    state = { value: this.props.value ? this.props.value : this.props.options[0]}
+
+    handleChange = event => this.setState({value: event.target.value});
+
+    render = () => (
+        <select value={this.state.value} onChange={this.handleChange}>
+            { this.props.options.map((v, i) => <option value={v} key={i.toString()}>{v}</option>) }
+        </select>
+    )
+}
