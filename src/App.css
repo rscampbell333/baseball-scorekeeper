@@ -3,7 +3,7 @@
 }
 
 .wrapper {
-  width: 200px;
+  width: 100%;
 }
 
 .count {
@@ -24,6 +24,11 @@
 
 .dotted-border-right {
   border-right: 1px dotted;
+}
+
+.left-column {
+  width: 10em;
+  min-width: 10em;
 }
 
 @keyframes App-logo-spin {

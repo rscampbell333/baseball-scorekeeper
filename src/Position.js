@@ -39,7 +39,7 @@ export class Position extends Component {
         ));
         
         return <div className="position">
-            <div className="players">
+            <div className="players left-column">
                 <PlayerNames onChange={this.handlePlayerUpdate} players={this.props.stats ? this.props.stats.players : undefined}/>
             </div>
             <div className="results">

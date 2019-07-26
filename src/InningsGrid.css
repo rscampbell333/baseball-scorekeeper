@@ -1,11 +1,11 @@
 .inningsGrid {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: fit-content;
 }
 
 .grid {
-    margin-left: 6px;
+    
 }
 
 .player-list {

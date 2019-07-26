@@ -23,13 +23,13 @@ export class PlayerNames extends Component {
         const playerComponents = this.state.players.map((player, index) => (
             <div className="player dotted-border-bottom" key={index.toString()}>
                 <EditableText value={player.name} onChange={this.handlePlayerUpdate} noValueClassName=""/>
-                <Dropdown options={Array.from({length: 9}, (v, k) => k+1)}/>
+                {/* <Dropdown options={Array.from({length: 9}, (v, k) => k+1)}/> */}
             </div>
         ));
 
         playerComponents.push(<div className="player dotted-border-bottom" key={playerComponents.length.toString()}>
                 <EditableText value="" onChange={this.handlePlayerUpdate} noValueClassName=""/>
-                <Dropdown options={Array.from({length: 9}, (v, k) => k+1)}/>
+                {/* <Dropdown options={Array.from({length: 9}, (v, k) => k+1)}/> */}
             </div>
         );
 

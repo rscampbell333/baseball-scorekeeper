@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Position } from './Position.js';
 import './InningsGrid.css';
+import { Header } from './Header'; 
 
 export class InningsGrid extends Component {
     
@@ -23,7 +24,10 @@ export class InningsGrid extends Component {
             positions = Array.from({length: 9}, (e, i) => <Position number={i + 1} key={i} onUpdate={this.onPositionUpdate} />);
         }
 
+
+
         return <div className="inningsGrid">
+            <Header/>
             <div className="grid">
                 {positions}
             </div>
