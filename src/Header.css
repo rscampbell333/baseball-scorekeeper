@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    height: 1em;
+    border-bottom: black solid 1px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgb(255,255,255,1);
+}
+
+.header .left-column {
+    border-right: black 1px solid;
+}
+
+.inning-header {
+    padding-left: 5px;
+}

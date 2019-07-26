@@ -18,7 +18,6 @@
 }
 
 .player-name {
-    width: 30em;
     flex: 1;
     border-right: 2px solid;
     position: relative;
@@ -28,6 +27,9 @@
 
 .inning {
     border-right: 1px solid;
+    box-sizing: border-box;
+    width: 200px;
+    min-width: 200px;
 }
 
 .players {
