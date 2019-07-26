@@ -22,8 +22,14 @@ export class BaseballField extends Component {
             {
                 name: 'home',
                 reached: false
+            },
+        ],
+        result: {
+            count: {
+                balls: 0,
+                strikes: 0
             }
-        ]
+        }
     }
 
     constructor(props) {
