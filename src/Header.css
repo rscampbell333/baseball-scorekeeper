@@ -1,6 +1,7 @@
 .header {
     display: flex;
-    height: 1em;
+    height: 1.5em;
+    line-height: 1.5em;
     border-bottom: black solid 1px;
     position: sticky;
     top: 0;
