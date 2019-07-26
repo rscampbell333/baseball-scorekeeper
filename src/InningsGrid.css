@@ -1,0 +1,17 @@
+.inningsGrid {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+
+.grid {
+    margin-left: 6px;
+}
+
+.player-list {
+    width: 10em;
+    height: 1440px;
+    align-self: flex-start;
+    background-color: white;
+    box-shadow: 6px 0px 6px #858585; 
+}

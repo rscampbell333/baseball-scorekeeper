@@ -1,0 +1,32 @@
+.reached {
+  fill: yellow;
+}
+
+.wrapper {
+  width: 200px;
+}
+
+.count {
+  float: right;
+}
+
+.dotted-border-top {
+  border-top: 1px dotted;
+}
+
+.dotted-border-bottom {
+  border-bottom: 1px dotted
+}
+
+.dotted-border-left {
+  border-left: 1px dotted;
+}
+
+.dotted-border-right {
+  border-right: 1px dotted;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
