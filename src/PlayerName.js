@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { EditableText } from './EditableText';
-import { Dropdown } from './Dropdown';
+import { EditableText, Dropdown } from './base-components';
 
 export class PlayerName extends Component {
 

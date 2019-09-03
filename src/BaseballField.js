@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { EditableText } from './EditableText';
+import { EditableText } from './base-components';
 import { PitchCount } from './PitchCount';
 import './BaseballField.css';
 
