@@ -28,8 +28,8 @@
 .inning {
     border-right: 1px solid;
     box-sizing: border-box;
-    width: 200px;
-    min-width: 200px;
+    width: 140px;
+    min-width: 140px;
 }
 
 .players {

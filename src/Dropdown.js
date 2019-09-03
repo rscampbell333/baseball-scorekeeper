@@ -4,7 +4,13 @@ export class Dropdown extends Component {
     
     state = { value: this.props.value ? this.props.value : this.props.options[0]}
 
-    handleChange = event => this.setState({value: event.target.value});
+    handleChange = event => {
+        this.setState({value: event.target.value});
+
+        if(this.props.onChange) {
+            this.props.onChange(event.target.value);
+        }
+    }
 
     render = () => (
         <select value={this.state.value} onChange={this.handleChange}>

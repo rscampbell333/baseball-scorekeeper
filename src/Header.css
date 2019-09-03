@@ -19,3 +19,8 @@
     border-left: black 1px solid;
     border-right: none;
 }
+
+.end {
+    width: 0px;
+    min-width: 0px;
+}
