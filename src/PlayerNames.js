@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { EditableText } from './EditableText';
-import { Dropdown } from './Dropdown';
+import { PlayerName } from './PlayerName';
 import './PlayerNames.css';
 
 export class PlayerNames extends Component {
@@ -21,17 +20,10 @@ export class PlayerNames extends Component {
 
     buildPlayerComponents = () => {
         const playerComponents = this.state.players.map((player, index) => (
-            <div className="player dotted-border-bottom" key={index.toString()}>
-                <EditableText value={player.name} onChange={this.handlePlayerUpdate} noValueClassName="" id={index}/>
-                {/* <Dropdown options={Array.from({length: 9}, (v, k) => k+1)}/> */}
-            </div>
+            <PlayerName name={player.name} showInningSelection={index > 0} key={index.toString()}/>
         ));
 
-        playerComponents.push(<div className="player dotted-border-bottom" key={playerComponents.length.toString()}>
-                <EditableText value="" onChange={this.handlePlayerUpdate} noValueClassName="" id={this.state.players.length}/>
-                {/* <Dropdown options={Array.from({length: 9}, (v, k) => k+1)}/> */}
-            </div>
-        );
+        playerComponents.push(<PlayerName showInningSelection={this.state.players.length > 0} key={this.state.players.length.toString()}/>);
 
         return playerComponents;
     }

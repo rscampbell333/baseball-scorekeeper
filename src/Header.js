@@ -8,6 +8,7 @@ export class Header extends Component {
                 Players
             </div>
             { Array.from({length: 9}, (e, i) => <div key={i.toString()} className="inning inning-header">{i + 1}</div>) }
+            <div className="end inning"></div>
         </div>
     )
 }
