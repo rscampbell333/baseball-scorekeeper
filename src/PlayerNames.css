@@ -1,3 +1,4 @@
 .player {
     display: flex;
+    text-align: left;
 }
