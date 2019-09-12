@@ -34,7 +34,6 @@ export class PitchCount extends Component {
         const newState = {};
         newState[type] = newCount;
         this.setState(newState);
-        console.log(this.getCount());
 
         //let parent know of change
         if(this.props.onChange) {
