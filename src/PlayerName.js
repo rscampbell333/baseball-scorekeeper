@@ -1,34 +1,16 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { EditableText, Dropdown } from './base-components';
 
-export class PlayerName extends Component {
+export const PlayerName = ({ initName, onChange, showInningSelection, id }) => {
+    const [ name, setName ] = useState(initName);
+    const [ since, setSince ] = useState(1);
 
-    static defaultProps = {
-        name: "",
-        since: 1
-    }
+    useEffect(() => {
+        if(onChange) onChange({ name, since }, id)
+    }, [ name, since, onChange, id ]);
 
-    state = {
-        name: this.props.name,
-        since: this.props.since
-    }
-
-    componentDidUpdate = () => {
-        if(this.props.onChange) {
-            this.props.onChange(this.state);
-        }
-    }
-
-    handleChange = (stateProp) => (value) => this.setState({[stateProp]: value});
-    
-    handleNameChange = this.handleChange('name');
-    handleInningChange = this.handleChange('since');
-
-
-    render = () => (
-        <div className="player dotted-border-bottom">
-            <EditableText value={this.props.name} onChange={this.handleNameChange} noValueClassName=""/>
-            { this.props.showInningSelection && <Dropdown onChange={this.handleInningChange} options={Array.from({length: 9}, (v, k) => k+1)}/> }
-        </div>
-    )
+    return <div className="player dotted-border-bottom">
+        <EditableText value={name} onChange={setName} noValueClassName=""/>
+        { showInningSelection && <Dropdown onChange={setSince} options={Array.from({length: 9}, (v, k) => k+1)}/> }
+    </div>
 }

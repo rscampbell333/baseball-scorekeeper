@@ -6,11 +6,11 @@ export class PlayerNames extends Component {
     
     state = { players: this.props.players ? this.props.players : [] }
 
-    handlePlayerUpdate = (textValue, id) => {
+    handlePlayerUpdate = (player, id) => {
         //only store and update if there is a value
-        if(textValue !== "" && (id === this.state.players.length || textValue !== this.state.players[id].name)) {
-            const players = [...this.state.players, { name: textValue, since: 0}]
-            this.setState({players: players});
+        if(player.name && player.name !== "" && (id === this.state.players.length || player.name !== this.state.players[id].name)) {
+            const players = [...this.state.players, { name: player.name, since: 0}]
+            this.setState({ players });
 
             if(this.props.onChange) {
                 this.props.onChange(players);
@@ -20,10 +20,17 @@ export class PlayerNames extends Component {
 
     buildPlayerComponents = () => {
         const playerComponents = this.state.players.map((player, index) => (
-            <PlayerName name={player.name} showInningSelection={index > 0} key={index.toString()}/>
+            <PlayerName name={player.name} 
+                        showInningSelection={index > 0} 
+                        id={index} 
+                        key={index.toString()} 
+                        onChange={this.handlePlayerUpdate}/>
         ));
 
-        playerComponents.push(<PlayerName showInningSelection={this.state.players.length > 0} key={this.state.players.length.toString()}/>);
+        playerComponents.push(<PlayerName id={this.state.players.length} 
+                                          showInningSelection={this.state.players.length > 0} 
+                                          key={this.state.players.length.toString() } 
+                                          onChange={this.handlePlayerUpdate}/>);
 
         return playerComponents;
     }
