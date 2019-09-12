@@ -17,7 +17,11 @@ export class EditableText extends Component {
 
     componentDidUpdate = (prevProps, prevState) => {
         if(prevState.editable && !this.state.editable && this.props.onChange) {
-            this.props.onChange(this.state.textValue, this.props.id);
+            if(this.props.onChange.length === 2) {
+                this.props.onChange(this.state.textValue, this.props.id);
+            } else {
+                this.props.onChange(this.state.textValue);
+            }
         }
     }
 
