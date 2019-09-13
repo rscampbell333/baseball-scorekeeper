@@ -58,7 +58,7 @@ export class BaseballField extends PureComponent {
     };
 
     baseClicked = (e) => {
-        let bases = this.state.bases;
+        let bases = [...this.state.bases];
         let i = e.target.id - 1;
 
         if(bases[i].reached) {
@@ -70,7 +70,7 @@ export class BaseballField extends PureComponent {
                 bases[i].reached = true;
             }
         }
-        this.setState(bases);
+        this.setState({bases});
     }
 
     handleCountChange = (count) => this.setState({count: count});
