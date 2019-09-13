@@ -5,13 +5,13 @@ import { Header } from './Header';
 
 export class InningsGrid extends Component {
     
-    constructor(props) {
-        super(props);
-        this.positionStats = [];
+    state = {
+        positionStats: []
+    }
 
-        if(localStorage.getItem('game')) {
-            this.defaultStats = JSON.parse(localStorage.getItem('game'));
-            console.log(this.defaultStats);
+    componentDidUpdate = () => {
+        if(this.props.onChange) {
+            this.props.onChange(this.state.positionStats);
         }
     }
 
@@ -35,7 +35,8 @@ export class InningsGrid extends Component {
     }
 
     onPositionUpdate = (results) => {
-        this.positionStats[results.position - 1] = results;
-        localStorage.setItem('game', JSON.stringify(this.positionStats));
+        const positionStats = [...this.state.positionStats];
+        positionStats[results.position - 1] = results;
+        this.setState({ positionStats });
     }
 }

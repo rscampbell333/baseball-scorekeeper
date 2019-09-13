@@ -51,7 +51,11 @@ export class BaseballField extends Component {
 
     componentDidMount = () => this.setState({svgHeight: this.svgRef.clientHeight});
 
-    componentDidUpdate = (prevProps, prevState) => this.props.onChange && this.props.onChange(this.getStats());
+    componentDidUpdate = (prevProps, prevState) => {
+        if(prevState.bases !== this.state.bases || prevState.result !== this.state.result || prevState.count !== this.state.count) {
+            this.props.onChange && this.props.onChange(this.getStats());
+        } 
+    };
 
     baseClicked = (e) => {
         let bases = this.state.bases;
@@ -122,7 +126,9 @@ export class BaseballField extends Component {
                     <PitchCount onChange={this.handleCountChange} {...this.props.result.count}/>
                 </div>
             </div>
-            <EditableText onChange={this.handleResultChange} noValueClassName="dotted-border-top" value={this.props.result.result}/>
+            <div className="result" >
+                <EditableText onChange={this.handleResultChange} noValueClassName="dotted-border-top" value={this.props.result.result}/>
+            </div>
         </div>;
     }
 }
