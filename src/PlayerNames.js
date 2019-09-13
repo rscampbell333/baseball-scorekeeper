@@ -20,7 +20,7 @@ export class PlayerNames extends Component {
 
     buildPlayerComponents = () => {
         const playerComponents = this.state.players.map((player, index) => (
-            <PlayerName name={player.name} 
+            <PlayerName initName={player.name} 
                         showInningSelection={index > 0} 
                         id={index} 
                         key={index.toString()} 

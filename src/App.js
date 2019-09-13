@@ -5,16 +5,18 @@ import { InningsGrid } from './InningsGrid';
 import { GameMetadata } from './GameMetadata';
 
 export const App = () => {
-  const [ metadata, setMetadata ] = useState();
-  const [ innings, setInnings ] = useState();
+  const { metadata: initMetadata, innings: initInnings } = JSON.parse(localStorage.getItem('game')) || {};
+
+  const [ metadata, setMetadata ] = useState(initMetadata);
+  const [ innings, setInnings ] = useState(initInnings);
 
   useEffect(() => {
-      
+      localStorage.setItem('game', JSON.stringify({ metadata, innings}));
   });
 
   return <>
-      <GameMetadata onChange={ setMetadata }/>
-      <InningsGrid onChange={ setInnings }/>
+      <GameMetadata initMetadata={initMetadata} onChange={ setMetadata }/>
+      <InningsGrid initStats={initInnings} onChange={ setInnings }/>
     </>
 }
 

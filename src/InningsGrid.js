@@ -5,21 +5,24 @@ import { Header } from './Header';
 
 export class InningsGrid extends Component {
     
-    state = {
-        positionStats: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            stats: props.initStats || Array.from({length: 9}, (v, i) => ({}))
+        }
     }
 
     componentDidUpdate = () => {
         if(this.props.onChange) {
-            this.props.onChange(this.state.positionStats);
+            this.props.onChange(this.state.stats);
         }
     }
 
     render = () => {
         let positions;
 
-        if(this.defaultStats) {
-            positions = this.defaultStats.map((position, i) => <Position number={i + 1} key={i} stats={position} onUpdate={this.onPositionUpdate}/>)
+        if(this.state.stats) {
+            positions = this.state.stats.map((position, i) => <Position number={i + 1} key={i} stats={position} onUpdate={this.onPositionUpdate}/>)
         } else {
             positions = Array.from({length: 9}, (e, i) => <Position number={i + 1} key={i} onUpdate={this.onPositionUpdate} />);
         }
@@ -35,8 +38,8 @@ export class InningsGrid extends Component {
     }
 
     onPositionUpdate = (results) => {
-        const positionStats = [...this.state.positionStats];
-        positionStats[results.position - 1] = results;
-        this.setState({ positionStats });
+        const stats = this.state.stats ? [...this.state.stats] : [];
+        stats[results.position - 1] = results;
+        this.setState({ stats });
     }
 }
