@@ -3,7 +3,7 @@ import { EditableText, DatePicker } from './base-components';
 import './GameMetadata.css';
 
 export const GameMetadata = ({initMetadata, onChange}) => {
-    const { teamName: initTeamName, date: initDate} = initMetadata;
+    const { teamName: initTeamName, date: initDate} = initMetadata || {};
 
     const [ teamName, setTeamName ] = useState(initTeamName);
     const [ date, setDate ] = useState(initDate);
