@@ -15,10 +15,6 @@ export class EditableText extends PureComponent {
         }
     }
 
-    shouldComponentUpdate = (nextProps, nextState) => {
-        return nextProps.value !== this.state.textValue;
-    }
-
     componentDidUpdate = (prevProps, prevState) => {
         if(prevState.editable && !this.state.editable && this.props.onChange) {
             if(this.props.onChange.length === 2) {
