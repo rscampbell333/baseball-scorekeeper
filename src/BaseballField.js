@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { EditableText } from './base-components';
 import { PitchCount } from './PitchCount';
 import './BaseballField.css';
 
-export class BaseballField extends Component {
+export class BaseballField extends PureComponent {
 
     static defaultProps = {
         bases: [

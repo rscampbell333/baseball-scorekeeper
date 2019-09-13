@@ -1,7 +1,7 @@
-import React, { Component} from 'react';
+import React, { PureComponent} from 'react';
 import './EditableText.css';
 
-export class EditableText extends Component {
+export class EditableText extends PureComponent {
 
     static defaultProps = {
         noValueClassName: 'noValue'
@@ -13,6 +13,10 @@ export class EditableText extends Component {
             editable: false,
             textValue: props.value ? props.value : ''
         }
+    }
+
+    shouldComponentUpdate = (nextProps, nextState) => {
+        return nextProps.value !== this.state.textValue;
     }
 
     componentDidUpdate = (prevProps, prevState) => {
