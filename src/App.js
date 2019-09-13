@@ -1,14 +1,20 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { BaseballField } from './BaseballField';
 import { InningsGrid } from './InningsGrid';
 import { GameMetadata } from './GameMetadata';
 
-class App extends Component {
-  //render = () => <BaseballField/>
-  render = () => <>
-      <GameMetadata/>
-      <InningsGrid/>
+export const App = () => {
+  const [ metadata, setMetadata ] = useState();
+  const [ innings, setInnings ] = useState();
+
+  useEffect(() => {
+      
+  });
+
+  return <>
+      <GameMetadata onChange={ setMetadata }/>
+      <InningsGrid onChange={ setInnings }/>
     </>
 }
 
