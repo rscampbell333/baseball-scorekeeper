@@ -2,3 +2,58 @@
     display: flex;
     text-align: left;
 }
+
+.player > .select {
+    position: relative;
+    display: inline-block;
+}
+
+.player > .select select {
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    padding: 1px 5px;
+    outline: 0;
+    border: 0;
+    border-radius: 0;
+    background: rgb(185, 196, 188);
+    color: rgb(69, 72, 81);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.player > .select select::-ms-expand {
+    display: none;
+}
+
+.player > .select select:hover, .select select:focus {
+    color: rgb(185, 196, 188);
+    background: rgb(69, 72, 81);
+}
+
+.player > .select select:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.player > .select__arrow {
+    position: absolute;
+    top: 16px;
+    right: 15px;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    border-style: solid;
+    border-width: 8px 5px 0 5px;
+    border-color: #7b7b7b transparent transparent transparent;
+}
+
+.player > .select select:hover ~ .select__arrow,
+.player > .select select:focus ~ .select__arrow {
+    border-top-color: #000;
+}
+
+.player > .select select:disabled ~ .select__arrow {
+    border-top-color: #ccc;
+}
