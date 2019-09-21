@@ -1,3 +1,59 @@
-.date-dropdown {
-    margin: 1px;
+.date-picker {
+    display: flex;
+}
+
+.date-picker > .select {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.date-picker > .select select {
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    padding: 5px 10px;
+    outline: 0;
+    border: 0;
+    border-radius: 0;
+    background: rgb(69, 72, 81);
+    color: rgb(204, 204, 204);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.date-picker > .select select::-ms-expand {
+    display: none;
+}
+
+.date-picker > .select select:hover, .select select:focus {
+    color: rgb(69, 72, 81);
+    background: rgb(204, 204, 204);
+}
+
+.date-picker > .select select:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.date-picker > .select__arrow {
+    position: absolute;
+    top: 16px;
+    right: 15px;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    border-style: solid;
+    border-width: 8px 5px 0 5px;
+    border-color: #7b7b7b transparent transparent transparent;
+}
+
+.date-picker > .select select:hover ~ .select__arrow,
+.date-picker > .select select:focus ~ .select__arrow {
+    border-top-color: #000;
+}
+
+.date-picker > .select select:disabled ~ .select__arrow {
+    border-top-color: #ccc;
 }

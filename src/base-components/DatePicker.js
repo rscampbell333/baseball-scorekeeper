@@ -41,19 +41,21 @@ export class DatePicker extends Component {
     }
 
     render = () => {
-        return <>
-            <Dropdown className="date-dropdown" 
-                      options={ DatePicker.months.map((month) => month.name) } 
-                      onChange={ value => this.setState({ month: value}) }
-                      value={ this.state.month }/>
-            <Dropdown className="date-dropdown" 
-                      options={ this.state && this.state.month ? [...Array(DatePicker.months.find(month => month.name === this.state.month).days).keys()].map((v, i) => i + 1) : [...Array(31).keys()].map((v, i) => i + 1)} 
-                      onChange={ value => this.setState({ day: value}) }
-                      value={ this.state.day }/>
-            <Dropdown className="date-dropdown" 
-                      options={ [...Array(30).keys()].map((v, i) => i + 2019) } 
-                      onChange={ value => this.setState({ year: value}) }
-                      value={ this.state.year }/>
-        </>
+        return (
+            <div className="date-picker">
+                <Dropdown className="date-dropdown" 
+                        options={ DatePicker.months.map((month) => month.name) } 
+                        onChange={ value => this.setState({ month: value}) }
+                        value={ this.state.month }/>
+                <Dropdown className="date-dropdown" 
+                        options={ this.state && this.state.month ? [...Array(DatePicker.months.find(month => month.name === this.state.month).days).keys()].map((v, i) => i + 1) : [...Array(31).keys()].map((v, i) => i + 1)} 
+                        onChange={ value => this.setState({ day: value}) }
+                        value={ this.state.day }/>
+                <Dropdown className="date-dropdown" 
+                        options={ [...Array(30).keys()].map((v, i) => i + 2019) } 
+                        onChange={ value => this.setState({ year: value}) }
+                        value={ this.state.year }/>
+            </div>
+        )
     }
 }
