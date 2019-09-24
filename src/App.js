@@ -1,23 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
-import { BaseballField } from './BaseballField';
-import { InningsGrid } from './InningsGrid';
-import { GameMetadata } from './GameMetadata';
+import { Scorecard } from './Scorecard';
 
-export const App = () => {
-  const { metadata: initMetadata, innings: initInnings } = JSON.parse(localStorage.getItem('game')) || {};
-
-  const [ metadata, setMetadata ] = useState(initMetadata);
-  const [ innings, setInnings ] = useState(initInnings);
-
-  useEffect(() => {
-      localStorage.setItem('game', JSON.stringify({ metadata, innings}));
-  });
-
-  return <>
-      <GameMetadata initMetadata={initMetadata} onChange={ setMetadata }/>
-      <InningsGrid initStats={initInnings} onChange={ setInnings }/>
-    </>
-}
+const App = () => <Scorecard id='7cf38328-9af7-459f-8228-08f876f687a3'/>
 
 export default App;

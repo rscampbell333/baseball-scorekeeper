@@ -1,0 +1,19 @@
+.controls {
+    height: 2rem;
+    display: flex;
+    background-color: #1b4965;
+    justify-content: flex-end;
+}
+
+.controls > button {
+    border: none;
+    background-color: rgb(95, 168, 211, 1);
+    color: white;
+    font-weight: bold;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.controls > button:hover {
+    background-color: rgb(95, 168, 211, .8);
+}
