@@ -8,17 +8,8 @@ export const Scorecard = ({id}) => {
   const [ metadata, setMetadata ] = useState();
   const [ innings, setInnings ] = useState();
 
-  const fetchGame = async () => {
-    const response = await fetch(`http://localhost:3001/scorekeeper/${id}`);
-    const game = await response.json();
-
-    setMetadata(game.metadata);
-    setInnings(game.innings);
-    setLoading(false);
-  }
-
   const saveGame = async() => {
-    const response = await fetch(`http://localhost:3001/scorekeeper/${id}`, {
+    const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/scorekeeper/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'
@@ -28,8 +19,17 @@ export const Scorecard = ({id}) => {
   }
 
   useEffect(() => {
-      fetchGame();
-  }, []);
+    const fetchGame = async () => {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/scorekeeper/${id}`);
+      const game = await response.json();
+  
+      setMetadata(game.metadata);
+      setInnings(game.innings);
+      setLoading(false);
+    }
+
+    fetchGame();
+  }, [id]);
 
   return (!loading && <>
       <Controls onSave={saveGame}/>
