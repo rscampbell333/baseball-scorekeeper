@@ -1,0 +1,28 @@
+.table {
+    margin: 5px;
+}
+
+.column {
+    width: 10em;
+    margin: 0 5px;
+}
+
+.row {
+    line-height: 2em;
+    display: flex;
+    padding: 5px;
+    border-bottom: 1px dotted rgb(0,0,0);
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.data > .row:hover {
+    background-color: rgb(0,0,0,0.05);
+}
+
+.heading {
+    font-weight: bold;
+    border-bottom: 2px solid rgb(0,0,0)
+}
