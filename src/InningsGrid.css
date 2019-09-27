@@ -1,12 +1,8 @@
-.inningsGrid {
+.innings-grid {
     display: flex;
     flex-direction: column;
     width: fit-content;
     box-sizing: border-box;
-}
-
-.grid {
-    
 }
 
 .player-list {
