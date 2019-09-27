@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from './base-components';
+import './GameSelector.css';
 
-export const GameSelector = () => {
+export const GameSelector = ({onSelect}) => {
     const [loading, setLoading] = useState(true);
     const [rows, setRows] = useState();
 
@@ -18,11 +19,7 @@ export const GameSelector = () => {
         loadGames();
     }, []);
 
-    const handleSelect = (id) => {
-        console.log(id)
-    }
-
     return (
-        !loading && <Table headers={['Team', 'Date']} rows={rows} onSelect={handleSelect}/>
+        !loading && <div className="game-selector"><Table headers={['Team', 'Date']} rows={rows} onSelect={onSelect}/></div>
     )
 }
