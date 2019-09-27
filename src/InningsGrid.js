@@ -29,7 +29,7 @@ export class InningsGrid extends Component {
 
 
 
-        return <div className="inningsGrid">
+        return <div className="innings-grid">
             <Header/>
             <div className="grid">
                 {positions}
