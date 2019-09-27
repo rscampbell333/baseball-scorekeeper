@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Scorecard } from './Scorecard';
 import { GameSelector } from './GameSelector';
 
-//const App = () => <Scorecard id='7cf38328-9af7-459f-8228-08f876f687a3'/>
-const App = () => <GameSelector/>
+const App = () => {
+  const [gameId, setGameId] = useState();
+
+  const handleGameSelect = (id) => {
+    setGameId(id);
+  }
+
+  return gameId ? <Scorecard id={gameId}/> : <GameSelector onSelect={handleGameSelect}/>;
+}
 
 export default App;

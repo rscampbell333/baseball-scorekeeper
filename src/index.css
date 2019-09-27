@@ -5,4 +5,5 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: min-content;
+  height: 100%;
 }
