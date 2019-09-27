@@ -6,4 +6,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   width: min-content;
   height: 100%;
+  font-family: oxygen, sans-serif;
 }
