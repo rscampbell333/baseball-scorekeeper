@@ -8,7 +8,7 @@
 }
 
 .table-row {
-    line-height: 2em;
+    line-height: 1em;
     display: flex;
     padding: 5px;
     border-bottom: 1px dotted rgb(0,0,0);

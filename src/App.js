@@ -5,12 +5,16 @@ import { GameSelector } from './GameSelector';
 
 const App = () => {
   const [gameId, setGameId] = useState();
+  const [loading, setLoading] = useState(true);
 
   const handleGameSelect = (id) => {
     setGameId(id);
+    setLoading(false);
   }
 
-  return gameId ? <Scorecard id={gameId}/> : <GameSelector onSelect={handleGameSelect}/>;
+  const reload = () => setLoading(true);
+
+  return loading ? <GameSelector onSelect={handleGameSelect}/> : <Scorecard id={gameId} onReload={reload}/>;
 }
 
 export default App;
