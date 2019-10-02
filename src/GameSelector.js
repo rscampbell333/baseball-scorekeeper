@@ -19,7 +19,18 @@ export const GameSelector = ({onSelect}) => {
         loadGames();
     }, []);
 
+    const handleNewGame = () => {
+        if(onSelect) {
+            onSelect(null);
+        }
+    }
+
     return (
-        !loading && <div className="game-selector"><Table headers={['Team', 'Date']} rows={rows} onSelect={onSelect}/></div>
+        !loading && (<div className="game-selector">
+            <div className="new-game">
+                <a href="#" onClick={handleNewGame}>New game</a> or load existing game: 
+            </div>
+            <Table headers={['Team', 'Date']} rows={rows} onSelect={onSelect}/>
+        </div>)
     )
 }

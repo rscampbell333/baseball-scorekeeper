@@ -1,6 +1,19 @@
 .game-selector {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left:50%;
     transform: translate(-50%, -50%);
+}
+
+.new-game {
+    line-height: 2em;
+}
+
+.new-game > a {
+    text-decoration: none;
+    color: blue;
+}
+
+.new-game > a:visited {
+    color: blue;
 }
