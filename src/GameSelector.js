@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Table } from './base-components';
+import { Table, Modal } from './base-components';
 import './GameSelector.css';
 
 export const GameSelector = ({ onSelect }) => {
     const [loading, setLoading] = useState(true);
     const [rows, setRows] = useState();
+    const [showModal, setShowModal] = useState(false);
+    const [gameId, setGameId] = useState();
 
     const loadGames = async () => {
         const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/scorekeeper`)
@@ -26,10 +28,16 @@ export const GameSelector = ({ onSelect }) => {
     }
 
     const handleDelete = async (id) => {
-        const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/scorekeeper/${id}`, {
+        setGameId(id);
+        setShowModal(true);
+    }
+
+    const deleteGame = async () => {
+        const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/scorekeeper/${gameId}`, {
             method: 'delete'
         });
         loadGames();
+        setShowModal(false);
     }
 
     return (
@@ -38,6 +46,11 @@ export const GameSelector = ({ onSelect }) => {
                 <a href="#" onClick={handleNewGame}>New game</a> or load existing game: 
             </div>
             <Table headers={['Team', 'Date']} rows={rows} onSelect={onSelect} onDelete={handleDelete}/>
+            {showModal && <Modal onCancel={() => setShowModal(false)} 
+                   onSubmit={deleteGame} 
+                   title="Delete Game" 
+                   text="Do you really want to delete the game?"/>
+            }
         </div>)
     )
 }
