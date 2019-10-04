@@ -12,6 +12,7 @@
     display: flex;
     padding: 5px;
     border-bottom: 1px dotted rgb(0,0,0);
+    height: 1em;
 }
 
 .table-row:last-child {
@@ -30,4 +31,8 @@
 .table-header {
     font-weight: bold;
     border-bottom: 2px solid rgb(0,0,0)
+}
+
+.delete-icon {
+    height: 100%;
 }
