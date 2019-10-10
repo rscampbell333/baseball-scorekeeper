@@ -4,19 +4,25 @@ import './Position.css';
 import { PlayerNames } from './PlayerNames';
 
 export class Position extends Component {
-    
-    results = [];
 
     constructor(props) {
         super(props);
 
-        if(this.props.stats && this.props.stats.players) {
-            this.players = this.props.stats.players;
+        if(this.props.stats) {
+            if(this.props.stats.players) {
+                this.players = this.props.stats.players;
+            }
+
+            if(this.props.stats.results) {
+                this.results = this.props.stats.results;
+            }
         }
     }
 
     handleResultUpdate = (stats) => {
+        console.log(this.results);
         this.results[stats.inning - 1] = stats;
+        console.log(this.results);
         
         if (this.props.onUpdate) {
             this.props.onUpdate({ position: this.props.number, results: this.results, players: this.players });

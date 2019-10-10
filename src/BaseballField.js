@@ -139,11 +139,11 @@ export class BaseballField extends PureComponent {
                     </g>
                 </svg>
                 <div className="count" style={{height: `${this.state.svgHeight}px`}}>
-                    <PitchCount onChange={this.handleCountChange} {...this.props.result.count}/>
+                    <PitchCount onChange={this.handleCountChange} {...this.state.count}/>
                 </div>
             </div>
             <div className="result" >
-                <EditableText onChange={this.handleResultChange} noValueClassName="dotted-border-top" value={this.props.result.result}/>
+                <EditableText onChange={this.handleResultChange} noValueClassName="dotted-border-top" value={this.state.result}/>
             </div>
         </div>;
     }
