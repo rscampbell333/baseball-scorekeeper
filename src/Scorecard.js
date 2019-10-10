@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Controls } from './base-components';
+import { Controls, Modal } from './base-components';
 import { GameMetadata } from './GameMetadata';
 import { InningsGrid } from './InningsGrid';
 
@@ -8,6 +8,7 @@ export const Scorecard = ({gameId, onReload}) => {
   const [ loading, setLoading] = useState(true);
   const [ metadata, setMetadata ] = useState();
   const [ innings, setInnings ] = useState();
+  const [ modalConfig, setModalConfig ] = useState({show: false});
 
   const saveGame = async() => {
     const method = id ? 'put' : 'post';
@@ -25,6 +26,12 @@ export const Scorecard = ({gameId, onReload}) => {
       const location = response.headers.get('location');
       const newId = location.substring(location.lastIndexOf('/') + 1);
       setId(newId);
+    }
+
+    if(response.ok) {
+      setModalConfig({show: true, title: 'Game saved successfully!'});
+    } else {
+      setModalConfig({show: true, title: 'Error saving game'});
     }
   }
 
@@ -48,6 +55,7 @@ export const Scorecard = ({gameId, onReload}) => {
       <Controls onSave={saveGame} onReload={onReload}/>
       <GameMetadata initMetadata={metadata} onChange={setMetadata}/>
       <InningsGrid initStats={innings} onChange={setInnings}/>
+      { modalConfig.show && <Modal onSubmit={() => setModalConfig({show: false})} text={modalConfig.text} title={modalConfig.title} submitLabel="Ok"/> }
     </>
   )
 }

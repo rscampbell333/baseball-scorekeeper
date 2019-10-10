@@ -12,7 +12,7 @@ export const GameSelector = ({ onSelect }) => {
         const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/scorekeeper`)
         const games = await response.json();
 
-        const rows = games.map(game => ({ id: game.id, data: [ game.metadata.teamName, game.metadata.date]}));
+        const rows = games.map(game => ({ id: game.id, data: [ game.metadata.teamName, new Date(game.metadata.date).toLocaleDateString(undefined, {month: 'long', year: 'numeric', day: 'numeric'})]}));
         setRows(rows);
         setLoading(false);
     }
@@ -49,7 +49,9 @@ export const GameSelector = ({ onSelect }) => {
             {showModal && <Modal onCancel={() => setShowModal(false)} 
                    onSubmit={deleteGame} 
                    title="Delete Game" 
-                   text="Do you really want to delete the game?"/>
+                   text="Do you really want to delete the game?"
+                   submitLabel="Yes"
+                   cancelLabel="No"/>
             }
         </div>)
     )
