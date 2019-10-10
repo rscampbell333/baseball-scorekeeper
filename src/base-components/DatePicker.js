@@ -7,12 +7,8 @@ export class DatePicker extends Component {
     constructor(props) {
         super(props);
         if(props.date) {
-            const match = props.date.match(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-([0-2][0-9])-(\d\d\d\d)/);
-            const month = match[1] || 'Jan';
-            const day = parseInt(match[2]) || 1;
-            const year = parseInt(match[3]) || 2019;
-
-            this.state = { month, day, year };
+            const date = new Date(props.date);
+            this.state = { month: DatePicker.months[date.getMonth()].name, day: date.getDate(), year: date.getYear()};
         } else {
             this.state = { month: 'Jan', day: 1, year: 2019 };
         }
@@ -35,8 +31,9 @@ export class DatePicker extends Component {
 
     componentDidUpdate = () => {
         if(this.props.onChange) {
-            const day = this.state.day < 10 ? `0${this.state.day}` : this.state.day;
-            this.props.onChange(`${this.state.month}-${day}-${this.state.year}`);
+            const monthIndex = DatePicker.months.findIndex(month => month.name === this.state.month);
+            const date = new Date(this.state.year, monthIndex, this.state.day );
+            this.props.onChange(date.toISOString());
         }
     }
 
