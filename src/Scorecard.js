@@ -55,7 +55,7 @@ export const Scorecard = ({gameId, onReload}) => {
       <Controls onSave={saveGame} onReload={onReload}/>
       <GameMetadata initMetadata={metadata} onChange={setMetadata}/>
       <InningsGrid initStats={innings} onChange={setInnings}/>
-      { modalConfig.show && <Modal onSubmit={() => setModalConfig({show: false})} text={modalConfig.text} title={modalConfig.title} submitLabel="Ok"/> }
+      { modalConfig.show && <Modal onSubmit={() => setModalConfig({show: false})} text={modalConfig.text} title={modalConfig.title} submitLabel="OK"/> }
     </>
   )
 }
