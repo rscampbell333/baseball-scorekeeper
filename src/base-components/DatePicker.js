@@ -8,7 +8,7 @@ export class DatePicker extends Component {
         super(props);
         if(props.date) {
             const date = new Date(props.date);
-            this.state = { month: DatePicker.months[date.getMonth()].name, day: date.getDate(), year: date.getYear()};
+            this.state = { month: DatePicker.months[date.getMonth()].name, day: date.getDate(), year: date.getFullYear()};
         } else {
             this.state = { month: 'Jan', day: 1, year: 2019 };
         }
