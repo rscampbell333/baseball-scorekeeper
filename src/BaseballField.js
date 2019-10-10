@@ -37,8 +37,15 @@ export class BaseballField extends PureComponent {
 
         if(this.props.result) {
             const initResult = this.props.result;
-            if(!initResult.bases) {
-                initResult.bases = JSON.parse(JSON.stringify(this.props.bases));
+            initResult.bases = JSON.parse(JSON.stringify(this.props.bases));
+
+            if(initResult.farthestBase && initResult.farthestBase !== 'none') {
+                for(let base of initResult.bases) {
+                    base.reached = true;
+                    if(base.name === initResult.farthestBase) {
+                        break;
+                    }
+                }
             }
 
             this.state = initResult;
@@ -86,9 +93,18 @@ export class BaseballField extends PureComponent {
         }
 
         if(this.state.result && this.state.result !== '') {
-            stats.bases = this.state.bases;
+            let farthestBase;
+            for(let i = 3; i >= 0; i--) {
+                if(this.state.bases[i].reached) {
+                    farthestBase = this.state.bases[i].name;
+                    break;
+                }
+            }
+
+            stats.farthestBase = farthestBase ? farthestBase : 'none';
             stats.count = this.state.count;
         } 
+        console.log(stats);
 
         return stats;
     };
