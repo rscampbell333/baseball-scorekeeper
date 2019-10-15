@@ -5,12 +5,13 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: rgb(238,238,221,1);
+    background-color: rgb(238, 238, 221);
     font-weight: bold;
 }
 
 .header .left-column {
     padding-left: 5px;
+    background-color: rgba(223, 223, 204, 0.64);
 }
 
 .inning-header {
@@ -18,8 +19,8 @@
     border-right: none;
 }
 
-.header .inning.inning-header:nth-child(even) {
-    background-color: rgba(238, 238, 221, 0);
+.header .inning.inning-header:nth-child(odd) {
+    background-color: rgba(223, 223, 204, 0.64);
 }
 
 .end {
