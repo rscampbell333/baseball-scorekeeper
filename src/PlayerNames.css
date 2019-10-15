@@ -1,6 +1,11 @@
+.position:nth-child(odd) .players {
+    background-color: rgb(238, 238, 221, 0.2);
+}
+
 .player {
     display: flex;
     text-align: left;
+    height: 100%;
 }
 
 .player > .select {

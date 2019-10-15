@@ -2,7 +2,6 @@
     display: flex;
     height: 1.5em;
     line-height: 1.5em;
-    border-bottom: black solid 1px;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -16,8 +15,11 @@
 
 .inning-header {
     padding-left: 5px;
-    border-left: black 1px solid;
     border-right: none;
+}
+
+.header .inning.inning-header:nth-child(even) {
+    background-color: rgba(238, 238, 221, 0);
 }
 
 .end {
