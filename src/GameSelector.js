@@ -33,7 +33,7 @@ export const GameSelector = ({ onSelect }) => {
     }
 
     const deleteGame = async () => {
-        const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/scorekeeper/${gameId}`, {
+        await fetch(`${process.env.REACT_APP_SERVER_HOST}/scorekeeper/${gameId}`, {
             method: 'delete'
         });
         loadGames();
