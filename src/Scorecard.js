@@ -29,9 +29,9 @@ export const Scorecard = ({gameId, onReload}) => {
     }
 
     if(response.ok) {
-      setModalConfig({show: true, title: 'Game saved successfully!'});
+      setModalConfig({show: true, title: 'Game saved successfully!' });
     } else {
-      setModalConfig({show: true, title: 'Error saving game'});
+      setModalConfig({show: true, title: 'Error saving game', error: true });
     }
   }
 
@@ -55,7 +55,7 @@ export const Scorecard = ({gameId, onReload}) => {
       <Controls onSave={saveGame} onReload={onReload}/>
       <GameMetadata initMetadata={metadata} onChange={setMetadata}/>
       <InningsGrid initStats={innings} onChange={setInnings}/>
-      { modalConfig.show && <Modal onSubmit={() => setModalConfig({show: false})} text={modalConfig.text} title={modalConfig.title} submitLabel="OK"/> }
+      { modalConfig.show && <Modal onSubmit={() => setModalConfig({show: false})} text={modalConfig.text} title={modalConfig.title} submitLabel="OK" error={modalConfig.error}/> }
     </>
   )
 }

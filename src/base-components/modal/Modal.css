@@ -20,6 +20,10 @@
     border-left: 5px solid rgb(4, 119, 59);
 }
 
+.error {
+    border-left: 5px solid rgb(255, 0, 0);
+}
+
 .modal-box > .text {
     margin: 10px 0;
 }
@@ -48,6 +52,14 @@
 
 .modal-box > .buttons > button.submit-button:hover {
     background-color: rgb(4, 119, 59, 0.8);
+}
+
+.modal-box.error > .buttons > button.submit-button {
+    background-color: rgb(255, 0, 0);
+}
+
+.modal-box.error > .buttons > button.submit-button:hover {
+    background-color: rgb(255, 0, 0, 0.8);
 }
 
 .modal-box > .buttons > button.cancel-button {
