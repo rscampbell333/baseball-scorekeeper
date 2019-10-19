@@ -23,6 +23,10 @@
     -moz-appearance: none;
 }
 
+.date-picker > .select select.year {
+    width: 5em;
+}
+
 .date-picker > .select select::-ms-expand {
     display: none;
 }

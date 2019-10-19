@@ -48,7 +48,7 @@ export class DatePicker extends Component {
                         options={ this.state && this.state.month ? [...Array(DatePicker.months.find(month => month.name === this.state.month).days).keys()].map((v, i) => i + 1) : [...Array(31).keys()].map((v, i) => i + 1)} 
                         onChange={ value => this.setState({ day: value}) }
                         value={ this.state.day }/>
-                <Dropdown className="date-dropdown" 
+                <Dropdown className="date-dropdown year" 
                         options={ [...Array(30).keys()].map((v, i) => i + 2019) } 
                         onChange={ value => this.setState({ year: value}) }
                         value={ this.state.year }/>
