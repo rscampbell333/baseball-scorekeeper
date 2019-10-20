@@ -15,6 +15,8 @@ export class Position extends Component {
 
             if(this.props.stats.results) {
                 this.results = this.props.stats.results;
+            } else {
+                this.results = [];
             }
         }
     }
