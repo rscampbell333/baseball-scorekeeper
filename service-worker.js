@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/baseball-scorekeeper/precache-manifest.e7c7e95ed2a98652535592ef8a64a19c.js"
+  "/baseball-scorekeeper/precache-manifest.454bfe416c9c4a1303d193bbeb9151ca.js"
 );
 
 self.addEventListener('message', (event) => {
