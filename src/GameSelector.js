@@ -41,11 +41,11 @@ export const GameSelector = ({ onSelect }) => {
     }
 
     return (
-        !loading && (<div className="game-selector">
+        (<div className="game-selector">
             <div className="new-game">
                 <a href="#" onClick={handleNewGame}>New game</a> or load existing game: 
             </div>
-            <Table headers={['Team', 'Date']} rows={rows} onSelect={onSelect} onDelete={handleDelete}/>
+            <Table headers={['Team', 'Date']} loading={loading} rows={rows} onSelect={onSelect} onDelete={handleDelete}/>
             {showModal && <Modal onCancel={() => setShowModal(false)} 
                    onSubmit={deleteGame} 
                    title="Delete Game" 
