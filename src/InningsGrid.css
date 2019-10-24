@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+.grid {
+    margin-top: 4em;
+}
+
 .player-list {
     width: 10em;
     height: 1440px;

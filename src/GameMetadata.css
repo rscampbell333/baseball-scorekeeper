@@ -1,10 +1,14 @@
 .game-metadata {
-    width: 100%;
+    width: 100vw;
     height: 2em;
     background-color: rgb(217, 217, 201);
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    position: fixed;
+    top: 2rem;
+    left: 0;
+    z-index: 1000;
 }
 
 .team-name-wrapper {
