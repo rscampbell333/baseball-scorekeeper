@@ -19,7 +19,7 @@ export const Scorecard = ({gameId, onReload}) => {
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify({ metadata, innings })
+      body: JSON.stringify({ metadata, innings: stats })
     });
 
     if(!id) {
