@@ -9,15 +9,21 @@
     z-index: 1000;
 }
 
-.controls > button {
+.controls > .buttons {
+    display: flex;
+    margin-right: 1em;
+}
+
+.controls > .buttons > button {
     border: none;
     background-color: rgb(95, 168, 211, 1);
     color: white;
     font-weight: bold;
-    margin: 4px;
     cursor: pointer;
+    height: 1.5em;
+    margin: auto 5px;
 }
 
-.controls > button:hover {
+.controls > .buttons > button:hover {
     background-color: rgb(95, 168, 211, .8);
 }
