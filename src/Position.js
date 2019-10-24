@@ -40,7 +40,8 @@ export class Position extends Component {
     }
 
     render = () => {
-        let players = Array.from({length: 9}, (e, i) => (
+        const innings = this.props.innings ? this.props.innings : 9;
+        const players = Array.from({length: innings}, (e, i) => (
             <div key={`${this.props.number}-${i}`} className="inning">
                 <BaseballField inning={i + 1} onChange={this.handleResultUpdate} result={this.props.stats && this.props.stats.results ? this.props.stats.results[i] : undefined}/>
             </div>

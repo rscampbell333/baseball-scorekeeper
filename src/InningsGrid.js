@@ -7,8 +7,10 @@ export class InningsGrid extends Component {
     
     constructor(props) {
         super(props);
+        const innings = props.initStats && props.initStats[0] && props.initStats[0].results.length >= 9 ? props.initStats[0].results.length : 9;
         this.state = {
-            stats: props.initStats || Array.from({length: 9}, (v, i) => ({}))
+            stats: props.initStats || Array.from({length: 9}, (v, i) => ({})),
+            innings
         }
     }
 
@@ -22,15 +24,15 @@ export class InningsGrid extends Component {
         let positions;
 
         if(this.state.stats) {
-            positions = this.state.stats.map((position, i) => <Position number={i + 1} key={i} stats={position} onUpdate={this.onPositionUpdate}/>)
+            positions = this.state.stats.map((position, i) => <Position number={i + 1} innings={this.state.innings} key={i} stats={position} onUpdate={this.onPositionUpdate}/>)
         } else {
-            positions = Array.from({length: 9}, (e, i) => <Position number={i + 1} key={i} onUpdate={this.onPositionUpdate} />);
+            positions = Array.from({length: 9}, (e, i) => <Position number={i + 1} innings={this.state.innings} key={i} onUpdate={this.onPositionUpdate} />);
         }
 
 
 
         return <div className="innings-grid">
-            <Header/>
+            <Header innings={this.state.innings}/>
             <div className="grid">
                 {positions}
             </div>
