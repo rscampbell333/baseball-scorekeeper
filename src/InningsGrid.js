@@ -12,7 +12,11 @@ export class InningsGrid extends Component {
         }
     }
 
-    componentDidUpdate = () => {
+    componentDidUpdate = (prevProps) => {
+        if(prevProps.innings !== this.props.innings) {
+            window.scroll(this.ref.clientWidth, 0);
+        }
+
         if(this.props.onChange) {
             this.props.onChange(this.state.stats);
         }
@@ -29,7 +33,7 @@ export class InningsGrid extends Component {
 
 
 
-        return <div className="innings-grid">
+        return <div className="innings-grid" ref={(div) => this.ref = div}>
             <Header innings={this.props.innings}/>
             <div className="grid">
                 {positions}
