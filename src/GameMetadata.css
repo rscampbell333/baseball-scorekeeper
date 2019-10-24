@@ -37,3 +37,10 @@
 .team-name {
     width: 100%;
 }
+
+.add-inning {
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    margin-right: calc(1em + 4px);
+}

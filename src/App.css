@@ -30,7 +30,10 @@
   width: 10em;
   min-width: 10em;
   box-sizing: border-box;
-  background-color: #eeeedd
+  background-color: rgb(238, 238, 221);
+  position: sticky;
+  left: 0;
+  z-index: 999;
 }
 
 @keyframes App-logo-spin {

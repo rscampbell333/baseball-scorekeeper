@@ -7,7 +7,8 @@ export const Scorecard = ({gameId, onReload}) => {
   const [ id, setId ] = useState(gameId);
   const [ loading, setLoading] = useState(true);
   const [ metadata, setMetadata ] = useState();
-  const [ innings, setInnings ] = useState();
+  const [ stats, setStats ] = useState();
+  const [ innings, setInnings ] = useState(9);
   const [ modalConfig, setModalConfig ] = useState({show: false});
 
   const saveGame = async() => {
@@ -35,6 +36,10 @@ export const Scorecard = ({gameId, onReload}) => {
     }
   }
 
+  const addInning = () => {
+    setInnings(innings + 1);
+  }
+
   useEffect(() => {
     const fetchGame = async () => {
       if(id) {
@@ -42,7 +47,9 @@ export const Scorecard = ({gameId, onReload}) => {
         const game = await response.json();
     
         setMetadata(game.metadata);
-        setInnings(game.innings);
+        setStats(game.innings);
+        const innings = game.innings && game.innings[0] && game.innings[0].results.length >= 9 ? game.innings[0].results.length : 9;
+        setInnings(innings);
       }
       
       setLoading(false);
@@ -53,8 +60,8 @@ export const Scorecard = ({gameId, onReload}) => {
 
   return (!loading && <>
       <Controls onSave={saveGame} onReload={onReload}/>
-      <GameMetadata initMetadata={metadata} onChange={setMetadata}/>
-      <InningsGrid initStats={innings} onChange={setInnings}/>
+      <GameMetadata initMetadata={metadata} onChange={setMetadata} addInning={addInning}/>
+      <InningsGrid innings={innings} initStats={stats} onChange={setStats}/>
       { modalConfig.show && <Modal onSubmit={() => setModalConfig({show: false})} text={modalConfig.text} title={modalConfig.title} submitLabel="OK" error={modalConfig.error}/> }
     </>
   )

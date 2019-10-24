@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { EditableText, DatePicker } from './base-components';
 import './GameMetadata.css';
+import plusSign from './images/icons8-plus.svg';
 
-export const GameMetadata = ({initMetadata, onChange}) => {
+export const GameMetadata = ({initMetadata, onChange, addInning}) => {
     const { teamName: initTeamName, date: initDate} = initMetadata || {};
 
     const [ teamName, setTeamName ] = useState(initTeamName);
@@ -24,6 +25,9 @@ export const GameMetadata = ({initMetadata, onChange}) => {
             <div className="game-date">
                 <DatePicker date={initDate} onChange={setDate}/>
             </div>
+        </div>
+        <div className="add-inning metadata-wrapper" onClick={addInning}>
+            <img src={plusSign}/>
         </div>
     </div>;
 }

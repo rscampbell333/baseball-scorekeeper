@@ -11,7 +11,7 @@
 
 .header .left-column {
     padding-left: 5px;
-    background-color: rgba(223, 223, 204, 0.64);
+    background-color: rgba(223, 223, 204);
 }
 
 .inning-header {
@@ -20,7 +20,7 @@
 }
 
 .header .inning.inning-header:nth-child(odd) {
-    background-color: rgba(223, 223, 204, 0.64);
+    background-color: rgba(223, 223, 204);
 }
 
 .end {
