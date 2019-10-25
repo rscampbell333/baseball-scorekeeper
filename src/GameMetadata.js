@@ -27,7 +27,7 @@ export const GameMetadata = ({initMetadata, onChange, addInning}) => {
             </div>
         </div>
         <div className="add-inning metadata-wrapper" onClick={addInning}>
-            <img src={plusSign}/>
+            <img src={plusSign} alt="Add inning"/>
         </div>
     </div>;
 }
