@@ -19,7 +19,7 @@ export const TableRow = ({id, loading, columns, onSelect, onDelete}) => {
         <div className="table-row" onClick={handleClick}>
             { !loading && columns.map((column, index) => <div key={index.toString()} className="table-column">{column}</div>) }
             { !loading && onDelete && <img className="delete-icon" src={deleteIcon} onClick={handleDelete} alt="delete"/> }
-            { loading && Array(2).fill(<Skeleton/>)}
+            { loading && Array.from({length: 2}, (v, k) => <Skeleton key={k.toString()}/>)}
         </div>
     )
 }

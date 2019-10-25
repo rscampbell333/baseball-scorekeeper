@@ -12,6 +12,15 @@
 .header .left-column {
     padding-left: 5px;
     background-color: rgba(223, 223, 204);
+    position: fixed;
+    left: 0;
+    top: 4em;
+}
+
+.header .innings {
+    position: relative;
+    left: 10em;
+    display: flex;
 }
 
 .inning-header {
