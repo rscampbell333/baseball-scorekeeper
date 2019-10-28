@@ -14,7 +14,9 @@ const App = () => {
 
   const reload = () => setLoading(true);
 
-  return loading ? <GameSelector onSelect={handleGameSelect}/> : <Scorecard gameId={gameId} onReload={reload}/>;
+  return <div className="dark">
+      { loading ? <GameSelector onSelect={handleGameSelect}/> : <Scorecard gameId={gameId} onReload={reload}/> }
+    </div>
 }
 
 export default App;

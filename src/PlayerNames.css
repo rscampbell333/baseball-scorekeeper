@@ -1,5 +1,5 @@
 .position:nth-child(odd) .players {
-    background-color: rgb(255, 255, 247);
+    background-color: var(--alt-scorecard-color);
 }
 
 .player {

@@ -30,7 +30,7 @@
   width: 10em;
   min-width: 10em;
   box-sizing: border-box;
-  background-color: rgb(238, 238, 221);
+  background-color: var(--primary-scorecard-color);
   position: sticky;
   left: 0;
   z-index: 999;
@@ -39,4 +39,22 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.light {
+  --primary-text-color: rgb(0, 0, 0);
+  --primary-scorecard-color: rgba(223, 223, 204);
+  --alt-scorecard-color: rgb(255, 255, 247);
+  --primary-grid-color: rgb(255, 255, 255);
+  --alt-grid-color: rgb(240, 240, 240);
+  color: var(--primary-text-color);
+}
+
+.dark {
+  --primary-text-color: rgb(148, 155, 160);
+  --primary-scorecard-color: rgb(54, 57, 59);
+  --alt-scorecard-color: rgb(80, 83, 85);
+  --primary-grid-color: rgb(84, 89, 92);
+  --alt-grid-color: rgb(109, 114, 117);
+  color: var(--primary-text-color);
 }

@@ -9,8 +9,12 @@
     flex-direction: row;
 }
 
+.position:nth-child(even) .inning:nth-child(odd), .position:nth-child(odd) .inning:nth-child(even) {
+    background-color: var(--primary-grid-color);
+}
+
 .position:nth-child(odd) .inning:nth-child(odd), .position:nth-child(even) .inning:nth-child(even) {
-    background-color: rgb(240, 240, 240);
+    background-color: var(--alt-grid-color);
 }
 
 .number {
