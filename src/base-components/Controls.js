@@ -1,11 +1,17 @@
 import React from 'react';
+import Toggle from 'react-toggle';
+import 'react-toggle/style.css';
 import './Controls.css';
 
 export const Controls = ({onSave, onReload, darkMode, onThemeToggle}) => {
     return <div className="controls">
         <div className="theme">
-            <input type="checkbox" name="theme" onChange={onThemeToggle} checked={darkMode}></input>
-            <label htmlFor="theme">Dark mode</label>
+            <Toggle id="theme-toggle" 
+                    className="toggle" 
+                    defaultChecked={darkMode} 
+                    onChange={onThemeToggle}
+                    icons={{checked: null, unchecked: null}} />
+            <label htmlFor="theme-toggle">Dark mode</label>
         </div>
         <div className="buttons">
             <button onClick={onSave}>Save</button>
