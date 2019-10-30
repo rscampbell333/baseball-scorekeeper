@@ -12,3 +12,20 @@
 .result {
     text-align: center;
 }
+
+.grass {
+    fill: #138A36;
+}
+
+.dirt {
+    fill: #CD5C1F;
+}
+
+.base-line {
+    stroke-width: 4;
+}
+
+.reached {
+    stroke: #FDE74C;
+    fill: #FDE74C;
+}

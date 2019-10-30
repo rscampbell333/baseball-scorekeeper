@@ -116,20 +116,20 @@ export class BaseballField extends PureComponent {
                                    viewBox="0 0 230 180" 
                                    ref={(div) => this.svgRef = div}>
                     <g className="infield" transform="matrix(-0.7,-0.7,0.7,-0.7,115,180)">
-                        <path d="M 0 0 L 160 0 A 160 140 45 0 1 0 160 L 0 0" fill="sienna"/>
+                        <path className="dirt" d="M 0 0 L 160 0 A 160 140 45 0 1 0 160 L 0 0" fill="sienna"/>
                         <g className="bases">
-                            <rect y="0" width="100px" height="100px" fill="green" x="0" />
+                            <rect className="grass" y="0" width="100px" height="100px" x="0" />
                             { this.state.bases[0].reached && 
-                                <line x1="2" y1="18" x2="2" y2="80" style={{stroke:'yellow',strokeWidth:4}}/>
+                                <line x1="2" y1="18" x2="2" y2="80" className="base-line reached"/>
                             }
                             { this.state.bases[1].reached && 
-                                <line x1="20" y1="98" x2="80" y2="98" style={{stroke:'yellow',strokeWidth:4}}/>
+                                <line x1="20" y1="98" x2="80" y2="98"  className="base-line reached"/>
                             }
                             { this.state.bases[2].reached &&
-                                <line x1="98" y1="18" x2="98" y2="80" style={{stroke:'yellow',strokeWidth:4}}/>
+                                <line x1="98" y1="18" x2="98" y2="80"  className="base-line reached"/>
                             }
                             { this.state.bases[3].reached &&
-                                <line x1="80" y1="2" x2="18" y2="2" style={{stroke:'yellow',strokeWidth:4}}/>
+                                <line x1="80" y1="2" x2="18" y2="2"  className="base-line reached"/>
                             }
                             <rect id="1" name={this.state.bases[0].name} className={this.getBaseClass(this.state.bases[0].reached)} x="0" y="80" width="20px" height="20px" fill="white" onClick={this.baseClicked}/>
                             <rect id="2" name={this.state.bases[1].name} className={this.getBaseClass(this.state.bases[1].reached)} x="80" y="80" width="20px" height="20px" fill="white" onClick={this.baseClicked}/>

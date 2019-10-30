@@ -1,7 +1,3 @@
-.reached {
-  fill: yellow;
-}
-
 .wrapper {
   width: 100%;
 }
@@ -42,19 +38,27 @@
 }
 
 .light {
-  --primary-text-color: rgb(0, 0, 0);
-  --primary-scorecard-color: rgba(223, 223, 204);
-  --alt-scorecard-color: rgb(255, 255, 247);
-  --primary-grid-color: rgb(255, 255, 255);
-  --alt-grid-color: rgb(240, 240, 240);
+  --primary-text-color: #000000;
+  --primary-scorecard-color: #dfdfcc;
+  --alt-scorecard-color: #fffff7;
+  --primary-grid-color: #ffffff;
+  --alt-grid-color: #f0f0f0;
+  --menu-color: #1b4965;
+  --menu-button-color: #5fa8d3;
+  --menu-button-hover-color: #79c2ed;
+  --menu-text-color: #ffffff;
   color: var(--primary-text-color);
 }
 
 .dark {
-  --primary-text-color: rgb(148, 155, 160);
-  --primary-scorecard-color: rgb(54, 57, 59);
-  --alt-scorecard-color: rgb(80, 83, 85);
-  --primary-grid-color: rgb(84, 89, 92);
-  --alt-grid-color: rgb(109, 114, 117);
+  --primary-text-color: #949ba0;
+  --primary-scorecard-color: #36393b;
+  --alt-scorecard-color: #505355;
+  --primary-grid-color: #54595c;
+  --alt-grid-color: #6d7275;
+  --menu-color: #1d2022;
+  --menu-button-color: #28536b;
+  --menu-button-hover-color: #426d85;
+  --menu-text-color: var(--primary-text-color);
   color: var(--primary-text-color);
 }

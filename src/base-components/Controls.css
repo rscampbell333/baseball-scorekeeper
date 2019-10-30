@@ -1,12 +1,21 @@
 .controls {
     height: 2rem;
     display: flex;
-    background-color: #1b4965;
+    background-color: var(--menu-color);
     justify-content: flex-end;
     width: 100vw;
     position: fixed;
     left: 0;
     z-index: 1000;
+    color: var(--menu-text-color);
+}
+
+.theme {
+    display: flex;
+}
+
+.theme label {
+    align-self: center;
 }
 
 .controls > .buttons {
@@ -16,7 +25,7 @@
 
 .controls > .buttons > button {
     border: none;
-    background-color: rgb(95, 168, 211, 1);
+    background-color: var(--menu-button-color);
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -25,5 +34,5 @@
 }
 
 .controls > .buttons > button:hover {
-    background-color: rgb(95, 168, 211, .8);
+    background-color: var(--menu-button-hover-color);
 }

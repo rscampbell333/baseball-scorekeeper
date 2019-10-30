@@ -10,6 +10,7 @@ export const Scorecard = ({gameId, onReload}) => {
   const [ stats, setStats ] = useState();
   const [ innings, setInnings ] = useState(9);
   const [ modalConfig, setModalConfig ] = useState({show: false});
+  const [ isDarkMode, setIsDarkMode ] = useState(false);
 
   const saveGame = async() => {
     const method = id ? 'put' : 'post';
@@ -58,11 +59,16 @@ export const Scorecard = ({gameId, onReload}) => {
     fetchGame();
   }, [id]);
 
-  return (!loading && <>
-      <Controls onSave={saveGame} onReload={onReload}/>
+  const handleThemeToggle = (event) => {
+    console.log(event);
+    setIsDarkMode(!isDarkMode);
+  }
+
+  return (!loading && <div className={isDarkMode ? 'dark' : 'light'}>
+      <Controls onSave={saveGame} onReload={onReload} onThemeToggle={handleThemeToggle} darkMode={isDarkMode} />
       <GameMetadata initMetadata={metadata} onChange={setMetadata} addInning={addInning}/>
       <InningsGrid innings={innings} initStats={stats} onChange={setStats}/>
       { modalConfig.show && <Modal onSubmit={() => setModalConfig({show: false})} text={modalConfig.text} title={modalConfig.title} submitLabel="OK" error={modalConfig.error}/> }
-    </>
+    </div>
   )
 }
