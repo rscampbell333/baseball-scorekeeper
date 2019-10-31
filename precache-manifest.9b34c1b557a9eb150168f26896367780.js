@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e6498baee25c9252caf5096ad4d22906",
+    "revision": "3b9a3d50584312971bc342f4629e921f",
     "url": "/baseball-scorekeeper/index.html"
   },
   {
-    "revision": "a8e2fbe7905279ac5c94",
+    "revision": "fa9b4a630ca5dbb6600a",
     "url": "/baseball-scorekeeper/static/css/2.c8f11a61.chunk.css"
   },
   {
-    "revision": "7a0726bdfe9c6474d518",
-    "url": "/baseball-scorekeeper/static/css/main.33080892.chunk.css"
+    "revision": "c2cd424d8e60a568a9a6",
+    "url": "/baseball-scorekeeper/static/css/main.a9e43b28.chunk.css"
   },
   {
-    "revision": "a8e2fbe7905279ac5c94",
-    "url": "/baseball-scorekeeper/static/js/2.cfe99dde.chunk.js"
+    "revision": "fa9b4a630ca5dbb6600a",
+    "url": "/baseball-scorekeeper/static/js/2.ddcc6f12.chunk.js"
   },
   {
-    "revision": "7a0726bdfe9c6474d518",
-    "url": "/baseball-scorekeeper/static/js/main.0448bbf6.chunk.js"
+    "revision": "c2cd424d8e60a568a9a6",
+    "url": "/baseball-scorekeeper/static/js/main.e33e0477.chunk.js"
   },
   {
     "revision": "0a7e6f1a55bc5c1b41c8",
@@ -26,6 +26,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "23acaf4baa29ca33c6775f6b4fee8d81",
     "url": "/baseball-scorekeeper/static/media/icons8-plus.23acaf4b.svg"
+  },
+  {
+    "revision": "f53b7bf1f8c13c82771b4e1b8e3e6f72",
+    "url": "/baseball-scorekeeper/static/media/open-button.f53b7bf1.svg"
   },
   {
     "revision": "18c506d11bd577d85d9eb3d9214a9874",
