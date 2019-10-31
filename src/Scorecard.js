@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Controls, Modal } from './base-components';
+import { Modal } from './base-components';
 import { GameMetadata } from './GameMetadata';
 import { InningsGrid } from './InningsGrid';
 import { Menu, MenuButton, MenuToggle } from './base-components';
