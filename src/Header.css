@@ -3,8 +3,8 @@
     height: 1.5em;
     line-height: 1.5em;
     position: sticky;
-    top: 4em;
-    z-index: 1000;
+    top: 2em;
+    z-index: 500;
     background-color: var(--alt-scorecard-color);
     font-weight: bold;
 }
@@ -14,7 +14,7 @@
     background-color: var(--primary-scorecard-color);
     position: fixed;
     left: 0;
-    top: 4em;
+    top: 2em;
 }
 
 .header .innings {

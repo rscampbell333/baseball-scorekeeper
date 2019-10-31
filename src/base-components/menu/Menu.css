@@ -1,0 +1,36 @@
+.content {
+    width: 10em;
+    height: calc(100vh - 2em);
+    position: fixed;
+    top: 2em;
+    left: 0;
+    background-color: var(--menu-color);
+    z-index: 10000;
+    color: var(--menu-text-color);
+    padding-top: 1em;
+}
+
+.open-button {
+    height: 100%;
+    padding: 4px 5px;
+}
+
+.open {
+    background-color: var(--menu-color);
+}
+
+.menu-button {
+    padding: 5px;
+}
+
+.menu-toggle {
+    padding: 25px 5px;
+}
+
+.menu-toggle {
+    display: flex;
+}
+
+.menu-button:hover {
+    background-color: var(--menu-button-hover-color);
+}

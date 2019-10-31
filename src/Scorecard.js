@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Controls, Modal } from './base-components';
 import { GameMetadata } from './GameMetadata';
 import { InningsGrid } from './InningsGrid';
+import { Menu, MenuButton, MenuToggle } from './base-components';
 
 export const Scorecard = ({gameId, onReload}) => {
   const [ id, setId ] = useState(gameId);
@@ -64,9 +65,14 @@ export const Scorecard = ({gameId, onReload}) => {
     setIsDarkMode(!isDarkMode);
   }
 
+  const menu = <Menu>
+    <MenuButton label="Save" onClick={saveGame}/>
+    <MenuButton label="Load" onClick={onReload}/>
+    <MenuToggle label="Dark mode" onChange={handleThemeToggle} defaultValue={isDarkMode}/>
+  </Menu>;
+
   return (!loading && <div className={isDarkMode ? 'dark' : 'light'}>
-      <Controls onSave={saveGame} onReload={onReload} onThemeToggle={handleThemeToggle} darkMode={isDarkMode} />
-      <GameMetadata initMetadata={metadata} onChange={setMetadata} addInning={addInning}/>
+      <GameMetadata initMetadata={metadata} onChange={setMetadata} addInning={addInning} menu={menu}/>
       <InningsGrid innings={innings} initStats={stats} onChange={setStats}/>
       { modalConfig.show && <Modal onSubmit={() => setModalConfig({show: false})} text={modalConfig.text} title={modalConfig.title} submitLabel="OK" error={modalConfig.error}/> }
     </div>
