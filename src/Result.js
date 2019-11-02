@@ -103,7 +103,6 @@ export class Result extends PureComponent {
             stats.farthestBase = farthestBase ? farthestBase : 'none';
             stats.count = this.state.count;
         } 
-        console.log(stats);
 
         return stats;
     };

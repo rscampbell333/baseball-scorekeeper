@@ -1,65 +1,39 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PitchBox } from './PitchBox';
 import './PitchCount.css';
 
-export class PitchCount extends Component {
+export const PitchCount = ({onChange, ...props}) => {
 
-    static defaultProps = {
-        balls: 0,
-        strikes: 0
+    const [balls, setBalls] = useState([false, false, false].fill(true, 0, props.balls || 0));
+    const [strikes, setStrikes] = useState([false, false].fill(true, 0, props.strikes || 0));
+
+    const generatePitches = (pitches, setPitches) => {
+        return pitches.map((reached, i) => <PitchBox key={i} updateCount={updateCount(i, pitches, setPitches)} reached={reached}/>);
     }
 
-    constructor(props) {
-        super(props);
+    const updateCount = (i, pitches, setPitches) => {
+        return (reached) => {
+            const newPitches = [...pitches];
+            newPitches[i] = reached;
+            setPitches(newPitches);
+        }
+    } 
 
-        this.state = {
-            balls: [false, false, false].fill(true, 0, this.props.balls),
-            strikes: [false, false].fill(true, 0, this.props.strikes)
+    useEffect(() => {
+        const count = {
+            balls: balls.filter(v => v).length,
+            strikes: strikes.filter(v => v).length
         };
-    }
 
-    generatePitches = (number, updateFunc) => {
-        let pitches = [];
-        
-        for(let i = 0; i < number; i++) {
-            pitches.push(<PitchBox key={i} updateCount={updateFunc(i)} reached={this.state.balls[i]}/>);
-        }
+        onChange && onChange(count);
+    }, [balls, strikes, onChange]);
 
-        return pitches;
-    }
-
-    updatePitch = (type, i) => (reached) => {
-        const newCount = this.state[type];
-        newCount[i] = reached;
-        const newState = {};
-        newState[type] = newCount;
-        this.setState(newState);
-
-        //let parent know of change
-        if(this.props.onChange) {
-            this.props.onChange(this.getCount());
-        }
-    }
-
-    updateBalls = (i) => this.updatePitch('balls', i);
-
-    updateStrikes = (i) => this.updatePitch('strikes', i);
-
-    getCount = () => (
-        {  
-            balls: this.state.balls.filter(val => val).length,
-            strikes: this.state.strikes.filter(val => val).length
-        }
-    );
-
-    render = () => {
-        return <div className="pitchCount">
-            <div className="balls flexbox">
-                {this.generatePitches(3, this.updateBalls)}
-            </div>
-            <div className="strikes flexbox">
-                {this.generatePitches(2, this.updateStrikes)}
-            </div>
+    return <div className="pitchCount">
+        <div className="balls flexbox">
+            {generatePitches(balls, setBalls)}
         </div>
-    }
+        <div className="strikes flexbox">
+            {generatePitches(strikes, setStrikes)}
+        </div>
+    </div>
 }

@@ -22,9 +22,7 @@ export class Position extends Component {
     }
 
     handleResultUpdate = (stats) => {
-        console.log(this.results);
         this.results[stats.inning - 1] = stats;
-        console.log(this.results);
         
         if (this.props.onUpdate) {
             this.props.onUpdate({ position: this.props.number, results: this.results, players: this.players });

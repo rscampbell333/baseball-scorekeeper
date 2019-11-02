@@ -1,25 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './PitchCount.css';
 
-export class PitchBox extends Component {
-    static defaultProps = {
-        reached: false
-    };
-
-    constructor(props) {
-        super(props);
-
-        this.state = { reached:  this.props.reached };
-    }
+export const PitchBox = ({reached, updateCount}) => {
     
-    toggleReached = (event) => {
-        const reached = !this.state.reached;
-        this.setState({ reached: reached });
-        this.props.updateCount(reached);
-    }
+    const toggleReached = (event) => updateCount(!reached);
 
-    render = () => {
-        const className = `pitchBox ${this.state.reached ? 'reached' : ''}`
-        return <div className={className} onClick={this.toggleReached}></div>;
-    }
+    const className = `pitchBox ${reached ? 'reached' : ''}`
+    return <div className={className} onClick={toggleReached}></div>;
 }
