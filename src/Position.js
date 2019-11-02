@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BaseballField } from './BaseballField';
+import { Result } from './Result';
 import './Position.css';
 import { PlayerNames } from './PlayerNames';
 
@@ -43,7 +43,7 @@ export class Position extends Component {
         const innings = this.props.innings ? this.props.innings : 9;
         const players = Array.from({length: innings}, (e, i) => (
             <div key={`${this.props.number}-${i}`} className="inning">
-                <BaseballField inning={i + 1} onChange={this.handleResultUpdate} result={this.props.stats && this.props.stats.results ? this.props.stats.results[i] : undefined}/>
+                <Result inning={i + 1} onChange={this.handleResultUpdate} result={this.props.stats && this.props.stats.results ? this.props.stats.results[i] : undefined}/>
             </div>
         ));
         

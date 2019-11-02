@@ -1,0 +1,14 @@
+
+.field {
+    position: relative;
+}
+
+.pitchCount {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.result {
+    text-align: center;
+}
