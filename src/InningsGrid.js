@@ -1,49 +1,33 @@
-import React, {Component} from 'react';
+import React, { useState, useEffect } from 'react';
+import { usePrevious } from './hooks';
 import { Position } from './Position.js';
 import './InningsGrid.css';
 import { Header } from './Header'; 
 
-export class InningsGrid extends Component {
+export const InningsGrid = ({ initStats, onChange, innings }) => {
     
-    constructor(props) {
-        super(props);
-        this.state = {
-            stats: props.initStats || Array.from({length: 9}, (v, i) => ({})),
+    const [ stats, setStats ] = useState(initStats || Array.from({length: 9}, (v, i) => ({})));
+    const prevInnings = usePrevious(innings);
+
+    useEffect(() => onChange && onChange(stats), [ stats, onChange ]);
+    useEffect(() => {
+        if(prevInnings && prevInnings !== innings) {
+            window.scroll(window.scroll(window.outerWidth, 0));
         }
-    }
+    }, [innings, prevInnings]);
 
-    componentDidUpdate = (prevProps) => {
-        if(prevProps.innings !== this.props.innings) {
-            window.scroll(this.ref.clientWidth, 0);
-        }
-
-        if(this.props.onChange) {
-            this.props.onChange(this.state.stats);
-        }
-    }
-
-    render = () => {
-        let positions;
-
-        if(this.state.stats) {
-            positions = this.state.stats.map((position, i) => <Position number={i + 1} innings={this.props.innings} key={i} stats={position} onUpdate={this.onPositionUpdate}/>)
-        } else {
-            positions = Array.from({length: 9}, (e, i) => <Position number={i + 1} innings={this.props.innings} key={i} onUpdate={this.onPositionUpdate} />);
-        }
-
-
-
-        return <div className="innings-grid" ref={(div) => this.ref = div}>
-            <Header innings={this.props.innings}/>
-            <div className="grid">
-                {positions}
-            </div>
-        </div>;
-    }
-
-    onPositionUpdate = (results) => {
-        const stats = this.state.stats ? [...this.state.stats] : [];
+    const onPositionUpdate = (results) => {
+        const newStats = stats ? [...stats] : [];
         stats[results.position - 1] = results;
-        this.setState({ stats });
+        setStats(newStats);
     }
+
+    const positions = stats.map((position, i) => <Position number={i + 1} innings={innings} key={i} stats={position} onUpdate={onPositionUpdate}/>)
+
+    return <div className="innings-grid">
+        <Header innings={innings}/>
+        <div className="grid">
+            {positions}
+        </div>
+    </div>;
 }
