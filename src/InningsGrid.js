@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { usePrevious } from './hooks';
 import { Position } from './Position.js';
 import './InningsGrid.css';
 import { Header } from './Header'; 
 
-export const InningsGrid = ({ initStats, onChange, innings }) => {
+export const InningsGrid = ({ onChange, innings, stats = Array.from({length: 9}, (v, i) => ({})) }) => {
     
-    const [ stats, setStats ] = useState(initStats || Array.from({length: 9}, (v, i) => ({})));
     const prevInnings = usePrevious(innings);
 
     useEffect(() => onChange && onChange(stats), [ stats, onChange ]);
@@ -17,9 +16,10 @@ export const InningsGrid = ({ initStats, onChange, innings }) => {
     }, [innings, prevInnings]);
 
     const onPositionUpdate = (results) => {
+        console.dir(results);
         const newStats = stats ? [...stats] : [];
-        stats[results.position - 1] = results;
-        setStats(newStats);
+        newStats[results.position - 1] = results;
+        onChange && onChange(newStats);
     }
 
     const positions = stats.map((position, i) => <Position number={i + 1} innings={innings} key={i} stats={position} onUpdate={onPositionUpdate}/>)

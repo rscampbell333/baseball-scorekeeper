@@ -73,7 +73,7 @@ export const Scorecard = ({gameId, onReload}) => {
 
   return (!loading && <div className={isDarkMode ? 'dark' : 'light'}>
       <GameMetadata initMetadata={metadata} onChange={setMetadata} addInning={addInning} menu={menu}/>
-      <InningsGrid innings={innings} initStats={stats} onChange={setStats}/>
+      <InningsGrid innings={innings} stats={stats} onChange={setStats}/>
       { modalConfig.show && <Modal onSubmit={() => setModalConfig({show: false})} text={modalConfig.text} title={modalConfig.title} submitLabel="OK" error={modalConfig.error}/> }
     </div>
   )

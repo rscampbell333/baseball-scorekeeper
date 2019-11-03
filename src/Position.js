@@ -1,58 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Result } from './Result';
 import './Position.css';
 import { PlayerNames } from './PlayerNames';
 
-export class Position extends Component {
+export const Position = ({stats, onUpdate, number, innings = 9}) => {
 
-    constructor(props) {
-        super(props);
+    const { players, results = []} = stats;
 
-        if(this.props.stats) {
-            if(this.props.stats.players) {
-                this.players = this.props.stats.players;
-            }
-
-            if(this.props.stats.results) {
-                this.results = this.props.stats.results;
-            } else {
-                this.results = [];
-            }
-        }
+    const handleResultUpdate = (stats) => {
+        const newResults = [...results];
+        newResults[stats.inning - 1] = stats;
+        onUpdate && onUpdate({ position: number, results: newResults, players});
     }
 
-    handleResultUpdate = (stats) => {
-        this.results[stats.inning - 1] = stats;
-        
-        if (this.props.onUpdate) {
-            this.props.onUpdate({ position: this.props.number, results: this.results, players: this.players });
-        }
+    const handlePlayerUpdate = (newPlayers) => {
+        onUpdate && onUpdate({ position: number, results, players: newPlayers });
     }
 
-    handlePlayerUpdate = (players) => {
-        this.players = players;
-
-        if (this.props.onUpdate) {
-            this.props.onUpdate({ position: this.props.number, results: this.results, players: this.players });
-        }
-    }
-
-    render = () => {
-        const innings = this.props.innings ? this.props.innings : 9;
-        const players = Array.from({length: innings}, (e, i) => (
-            <div key={`${this.props.number}-${i}`} className="inning">
-                <Result inning={i + 1} onChange={this.handleResultUpdate} result={this.props.stats && this.props.stats.results ? this.props.stats.results[i] : undefined}/>
-            </div>
-        ));
-        
-        return <div className="position">
-            <div className="players left-column">
-                <PlayerNames onChange={this.handlePlayerUpdate} players={this.props.stats ? this.props.stats.players : undefined}/>
-            </div>
-            <div className="results">
-                {players}
-            </div>
+    const playerComponents = Array.from({length: innings}, (e, i) => (
+        <div key={`${number}-${i}`} className="inning">
+            <Result inning={i + 1} onChange={handleResultUpdate} result={stats && stats.results ? stats.results[i] : undefined}/>
         </div>
-    }
+    ));
+        
+    return <div className="position">
+        <div className="players left-column">
+            <PlayerNames onChange={handlePlayerUpdate} players={stats ? stats.players : undefined}/>
+        </div>
+        <div className="results">
+            {playerComponents}
+        </div>
+    </div>;
 }
 
