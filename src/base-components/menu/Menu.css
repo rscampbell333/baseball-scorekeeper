@@ -7,6 +7,7 @@
     background-color: var(--menu-color);
     z-index: 10000;
     color: var(--menu-text-color);
+    font-weight: bold;
     padding-top: 1em;
 }
 
