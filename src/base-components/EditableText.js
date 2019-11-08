@@ -1,7 +1,7 @@
-import React, { PureComponent} from 'react';
+import React, { Component} from 'react';
 import './EditableText.css';
 
-export class EditableText extends PureComponent {
+export class EditableText extends Component {
 
     static defaultProps = {
         noValueClassName: 'noValue'
@@ -16,6 +16,10 @@ export class EditableText extends PureComponent {
     }
 
     componentDidUpdate = (prevProps, prevState) => {
+        if(prevProps.value !== this.props.value) {
+            this.setState({textValue: this.props.value});
+        }
+
         if(prevState.editable && !this.state.editable && this.props.onChange) {
             if(this.props.onChange.length === 2) {
                 this.props.onChange(this.state.textValue, this.props.id);

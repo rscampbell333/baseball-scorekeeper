@@ -1,0 +1,25 @@
+.tabs {
+    height: 2em;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: var(--primary-scorecard-color);
+    z-index: 1000;
+    display: flex;
+}
+
+.tab {
+    height: 1.5em;
+    margin-left: 5px;
+    padding: 0 5px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.tab:nth-child(odd) {
+    background-color: #003278;
+}
+
+.tab:nth-child(even) {
+    background-color: #C0111F;
+}

@@ -7,3 +7,5 @@ export * from './modal/Modal';
 export * from './menu/Menu';
 export * from './menu/MenuButton';
 export * from './menu/MenuToggle';
+export * from './tabs/Tabs';
+export * from './tabs/Tab';

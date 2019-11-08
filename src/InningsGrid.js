@@ -16,7 +16,6 @@ export const InningsGrid = ({ onChange, innings, stats = Array.from({length: 9},
     }, [innings, prevInnings]);
 
     const onPositionUpdate = (results) => {
-        console.dir(results);
         const newStats = stats ? [...stats] : [];
         newStats[results.position - 1] = results;
         onChange && onChange(newStats);

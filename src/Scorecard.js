@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal } from './base-components';
+import { Modal, Tabs, Tab } from './base-components';
 import { GameMetadata } from './GameMetadata';
 import { InningsGrid } from './InningsGrid';
 import { Menu, MenuButton, MenuToggle } from './base-components';
@@ -7,8 +7,10 @@ import { Menu, MenuButton, MenuToggle } from './base-components';
 export const Scorecard = ({gameId, onReload}) => {
   const [ id, setId ] = useState(gameId);
   const [ loading, setLoading] = useState(true);
+  const [ team, setTeam ] = useState('home');
   const [ metadata, setMetadata ] = useState();
-  const [ stats, setStats ] = useState();
+  const [ homeStats, setHomeStats ] = useState();
+  const [ awayStats, setAwayStats ] = useState();
   const [ innings, setInnings ] = useState(9);
   const [ modalConfig, setModalConfig ] = useState({show: false});
   const [ isDarkMode, setIsDarkMode ] = useState(false);
@@ -21,7 +23,7 @@ export const Scorecard = ({gameId, onReload}) => {
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify({ metadata, innings: stats })
+      body: JSON.stringify({ metadata, innings: { home: homeStats, away: awayStats } })
     });
 
     if(!id) {
@@ -49,7 +51,8 @@ export const Scorecard = ({gameId, onReload}) => {
         const game = await response.json();
     
         setMetadata(game.metadata);
-        setStats(game.innings);
+        setHomeStats(game.innings.home);
+        setAwayStats(game.innings.away)
         const innings = game.innings && game.innings[0] && game.innings[0].results.length >= 9 ? game.innings[0].results.length : 9;
         setInnings(innings);
       }
@@ -73,7 +76,11 @@ export const Scorecard = ({gameId, onReload}) => {
 
   return (!loading && <div className={isDarkMode ? 'dark' : 'light'}>
       <GameMetadata initMetadata={metadata} onChange={setMetadata} addInning={addInning} menu={menu}/>
-      <InningsGrid innings={innings} stats={stats} onChange={setStats}/>
+      { team === 'home' ? <InningsGrid innings={innings} stats={homeStats} onChange={setHomeStats}/> : <InningsGrid innings={innings} stats={awayStats} onChange={setAwayStats}/> }
+      <Tabs onSelect={setTeam}>
+        <Tab label="home" onSelect={setTeam}/>
+        <Tab label="away" onSelect={setTeam}/>
+      </Tabs>
       { modalConfig.show && <Modal onSubmit={() => setModalConfig({show: false})} text={modalConfig.text} title={modalConfig.title} submitLabel="OK" error={modalConfig.error}/> }
     </div>
   )
