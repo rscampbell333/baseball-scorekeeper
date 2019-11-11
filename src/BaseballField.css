@@ -10,6 +10,12 @@
     stroke-width: 4;
 }
 
+.base {
+    width: 20px;
+    height: 20px;
+    fill: #ffffff;
+}
+
 .reached {
     stroke: #FDE74C;
     fill: #FDE74C;

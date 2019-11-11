@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { EditableText, Dropdown } from './base-components';
 
 export const PlayerName = ({ initName = "", onChange, showInningSelection, id }) => {
-    console.log({initName, id});
     const [ name, setName ] = useState(initName);
     const [ since, setSince ] = useState(1);
 
