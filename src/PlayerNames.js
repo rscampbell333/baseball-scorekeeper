@@ -2,7 +2,7 @@ import React from 'react';
 import { PlayerName } from './PlayerName';
 import './PlayerNames.css';
 
-export const PlayerNames = ({players, onChange}) => {
+export const PlayerNames = ({players = [], onChange}) => {
 
     const handlePlayerUpdate = (player, id) => {
         //only store and update if there is a value
