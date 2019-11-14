@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c8531075586a9094269fe1cac3082ed2",
+    "revision": "15707eca132b24b01ab71a444814c179",
     "url": "/baseball-scorekeeper/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/baseball-scorekeeper/static/css/2.c8f11a61.chunk.css"
   },
   {
-    "revision": "957c21329adc67a319b7",
+    "revision": "73477e9fb95b11194de2",
     "url": "/baseball-scorekeeper/static/css/main.c7923479.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/baseball-scorekeeper/static/js/2.d3c224f7.chunk.js"
   },
   {
-    "revision": "957c21329adc67a319b7",
-    "url": "/baseball-scorekeeper/static/js/main.7e9ccfe5.chunk.js"
+    "revision": "73477e9fb95b11194de2",
+    "url": "/baseball-scorekeeper/static/js/main.86154007.chunk.js"
   },
   {
     "revision": "0a7e6f1a55bc5c1b41c8",
