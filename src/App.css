@@ -47,6 +47,7 @@
   --menu-button-color: #5fa8d3;
   --menu-button-hover-color: #79c2ed;
   --menu-text-color: #ffffff;
+  --unselected-tab-color: #6d7275;
   color: var(--primary-text-color);
 }
 
@@ -60,5 +61,6 @@
   --menu-button-color: #28536b;
   --menu-button-hover-color: #426d85;
   --menu-text-color: var(--primary-text-color);
+  --unselected-tab-color: #6d7275;
   color: var(--primary-text-color);
 }

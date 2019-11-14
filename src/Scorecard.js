@@ -8,7 +8,9 @@ export const Scorecard = ({gameId, onReload}) => {
   const [ id, setId ] = useState(gameId);
   const [ loading, setLoading] = useState(true);
   const [ team, setTeam ] = useState('home');
-  const [ metadata, setMetadata ] = useState();
+  const [ homeTeam, setHomeTeam ] = useState();
+  const [ awayTeam, setAwayTeam ] = useState();
+  const [ date, setDate ] = useState();
   const [ homeStats, setHomeStats ] = useState();
   const [ awayStats, setAwayStats ] = useState();
   const [ innings, setInnings ] = useState(9);
@@ -23,7 +25,7 @@ export const Scorecard = ({gameId, onReload}) => {
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify({ metadata, innings: { home: homeStats, away: awayStats } })
+      body: JSON.stringify({ metadata: { date, homeTeam, awayTeam }, innings: { home: homeStats, away: awayStats } })
     });
 
     if(!id) {
@@ -50,7 +52,9 @@ export const Scorecard = ({gameId, onReload}) => {
         const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/scorekeeper/${id}`);
         const game = await response.json();
     
-        setMetadata(game.metadata);
+        setDate(game.metadata.date);
+        setHomeTeam(game.metadata.homeTeam);
+        setAwayTeam(game.metadata.awayTeam);
         setHomeStats(game.innings.home);
         setAwayStats(game.innings.away)
         const innings = game.innings && game.innings[0] && game.innings[0].results.length >= 9 ? game.innings[0].results.length : 9;
@@ -75,12 +79,9 @@ export const Scorecard = ({gameId, onReload}) => {
   </Menu>;
 
   return (!loading && <div className={isDarkMode ? 'dark' : 'light'}>
-      <GameMetadata initMetadata={metadata} onChange={setMetadata} addInning={addInning} menu={menu}/>
+      { team === 'home' ? <GameMetadata team={homeTeam} onTeamChange={setHomeTeam} date={date} onDateChange={setDate} addInning={addInning} menu={menu}/> : <GameMetadata team={awayTeam} onTeamChange={setAwayTeam} date={date} onDateChange={setDate} addInning={addInning} menu={menu}/> }
       { team === 'home' ? <InningsGrid innings={innings} stats={homeStats} onChange={setHomeStats}/> : <InningsGrid innings={innings} stats={awayStats} onChange={setAwayStats}/> }
-      <Tabs onSelect={setTeam}>
-        <Tab label="home" onSelect={setTeam}/>
-        <Tab label="away" onSelect={setTeam}/>
-      </Tabs>
+      <Tabs onSelect={setTeam} labels={['home', 'away']} selectedLabel={team}/>
       { modalConfig.show && <Modal onSubmit={() => setModalConfig({show: false})} text={modalConfig.text} title={modalConfig.title} submitLabel="OK" error={modalConfig.error}/> }
     </div>
   )

@@ -23,3 +23,7 @@
 .tab:nth-child(even) {
     background-color: #C0111F;
 }
+
+.tab.not-selected {
+    background-color: var(--unselected-tab-color);
+}
