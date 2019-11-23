@@ -8,11 +8,13 @@ export const GameSelector = ({ onSelect }) => {
     const [showModal, setShowModal] = useState(false);
     const [gameId, setGameId] = useState();
 
+    const formatDate = (isoDate) => new Date(isoDate).toLocaleDateString(undefined, {month: 'long', year: 'numeric', day: 'numeric'});
+
     const loadGames = async () => {
         const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/scorekeeper`)
         const games = await response.json();
 
-        const rows = games.map(game => ({ id: game.id, data: [ game.metadata.teamName, new Date(game.metadata.date).toLocaleDateString(undefined, {month: 'long', year: 'numeric', day: 'numeric'})]}));
+        const rows = games.map(({id, metadata: { date, homeTeam, awayTeam }}) => ({ id, data: [ homeTeam, awayTeam, formatDate(date)]}));
         setRows(rows);
         setLoading(false);
     }
@@ -45,7 +47,7 @@ export const GameSelector = ({ onSelect }) => {
             <div className="new-game">
                 <a href="#" onClick={handleNewGame}>New game</a> or load existing game: 
             </div>
-            <Table headers={['Team', 'Date']} loading={loading} rows={rows} onSelect={onSelect} onDelete={handleDelete}/>
+            <Table headers={['Home', 'Away', 'Date']} loading={loading} rows={rows} onSelect={onSelect} onDelete={handleDelete}/>
             {showModal && <Modal onCancel={() => setShowModal(false)} 
                    onSubmit={deleteGame} 
                    title="Delete Game" 

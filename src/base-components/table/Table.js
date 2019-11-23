@@ -8,7 +8,7 @@ export const Table = ({headers, rows, onSelect, onDelete, loading}) => (
         <TableHeader labels={headers}/>
         <div className="data">
             {!loading && rows.map(row => <TableRow id={row.id} key={row.id} columns={row.data} onSelect={onSelect} onDelete={onDelete}/>)}
-            {loading && Array.from({length: 3}, (v, k) => <TableRow key={k.toString()} loading={true}/>)}
+            {loading && Array.from({length: 3}, (v, k) => <TableRow key={k.toString()} loading={true} numColumns={headers.length}/>)}
         </div>
     </div>
 )

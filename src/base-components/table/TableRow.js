@@ -2,7 +2,7 @@ import React from 'react';
 import deleteIcon from './icons/delete.png';
 import { Skeleton } from '../Skeleton';
 
-export const TableRow = ({id, loading, columns, onSelect, onDelete}) => {
+export const TableRow = ({id, loading, columns, onSelect, onDelete, numColumns}) => {
     
     const handleClick = () => {
         if(onSelect) {
@@ -19,7 +19,7 @@ export const TableRow = ({id, loading, columns, onSelect, onDelete}) => {
         <div className="table-row" onClick={handleClick}>
             { !loading && columns.map((column, index) => <div key={index.toString()} className="table-column">{column}</div>) }
             { !loading && onDelete && <img className="delete-icon" src={deleteIcon} onClick={handleDelete} alt="delete"/> }
-            { loading && Array.from({length: 2}, (v, k) => <Skeleton key={k.toString()}/>)}
+            { loading && Array.from({length: numColumns}, (v, k) => <Skeleton key={k.toString()}/>)}
         </div>
     )
 }
