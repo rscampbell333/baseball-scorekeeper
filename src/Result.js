@@ -27,7 +27,7 @@ export const Result = React.memo(({inning, result, onChange}) => {
                 </div>
             </div>
             <div className="result" >
-                <EditableText onChange={handleResultChange} noValueClassName="dotted-border-top" value={play}/>
+                <EditableText onChange={handleResultChange} placeholder="result" value={play}/>
             </div>
         </div>
     )

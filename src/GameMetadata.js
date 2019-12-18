@@ -10,7 +10,7 @@ export const GameMetadata = ({addInning, team, onTeamChange, date, onDateChange,
         </div>
         <div className="team-name-wrapper metadata-wrapper">
             <div className="team-name">
-                <EditableText value={team} onChange={onTeamChange}/>
+                <EditableText value={team} onChange={onTeamChange} placeholder="Team Name"/>
             </div>
         </div>
         <div className="game-date-wrapper metadata-wrapper">

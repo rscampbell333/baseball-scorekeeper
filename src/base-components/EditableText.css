@@ -27,7 +27,7 @@ input[type="text"] {
 }
 
 .noValue {
-    border: 1px dotted;
+    color: darkgray;
 }
 
 .notEditable {

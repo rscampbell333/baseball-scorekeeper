@@ -56,7 +56,7 @@ export class EditableText extends Component {
                                          autoFocus></input>
         } else {
             textTag = <div className={`notEditable ${this.state.textValue === '' ? this.props.noValueClassName : ''}`}>
-                {this.state.textValue}
+                {this.state.textValue || this.props.placeholder || ''}
             </div>;
         }
 
