@@ -6,20 +6,8 @@
   float: right;
 }
 
-.dotted-border-top {
-  border-top: 1px dotted;
-}
-
-.dotted-border-bottom {
-  border-bottom: 1px dotted
-}
-
-.dotted-border-left {
-  border-left: 1px dotted;
-}
-
-.dotted-border-right {
-  border-right: 1px dotted;
+.dashed-border-bottom {
+  border-bottom: 1px dashed
 }
 
 .left-column {

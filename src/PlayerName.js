@@ -11,7 +11,7 @@ export const PlayerName = ({ initName = "", initSince = 1, onChange, showInningS
 
     useEffect(() => setName(initName), [initName, setName]);
 
-    return <div className="player dotted-border-bottom">
+    return <div className="player dashed-border-bottom">
         <EditableText value={name} onChange={setName} noValueClassName=""/>
         { showInningSelection && <Dropdown value={initSince} onChange={setSince} options={Array.from({length: 9}, (v, k) => k+1)}/> }
     </div>
