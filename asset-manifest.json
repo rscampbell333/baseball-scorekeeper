@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/baseball-scorekeeper/static/css/main.5adab860.chunk.css",
+    "main.css": "/baseball-scorekeeper/static/css/main.b76108e4.chunk.css",
     "main.js": "/baseball-scorekeeper/static/js/main.81714383.chunk.js",
     "main.js.map": "/baseball-scorekeeper/static/js/main.81714383.chunk.js.map",
     "runtime~main.js": "/baseball-scorekeeper/static/js/runtime~main.ea2f7a06.js",
@@ -9,10 +9,10 @@
     "static/js/2.d3c224f7.chunk.js": "/baseball-scorekeeper/static/js/2.d3c224f7.chunk.js",
     "static/js/2.d3c224f7.chunk.js.map": "/baseball-scorekeeper/static/js/2.d3c224f7.chunk.js.map",
     "index.html": "/baseball-scorekeeper/index.html",
-    "precache-manifest.a89c9b0f33b0b6011707345b2c2693a4.js": "/baseball-scorekeeper/precache-manifest.a89c9b0f33b0b6011707345b2c2693a4.js",
+    "precache-manifest.17e11c04b46973a9044cc6c297aecc64.js": "/baseball-scorekeeper/precache-manifest.17e11c04b46973a9044cc6c297aecc64.js",
     "service-worker.js": "/baseball-scorekeeper/service-worker.js",
     "static/css/2.c8f11a61.chunk.css.map": "/baseball-scorekeeper/static/css/2.c8f11a61.chunk.css.map",
-    "static/css/main.5adab860.chunk.css.map": "/baseball-scorekeeper/static/css/main.5adab860.chunk.css.map",
+    "static/css/main.b76108e4.chunk.css.map": "/baseball-scorekeeper/static/css/main.b76108e4.chunk.css.map",
     "static/media/icons8-plus.svg": "/baseball-scorekeeper/static/media/icons8-plus.23acaf4b.svg",
     "static/media/open-button.svg": "/baseball-scorekeeper/static/media/open-button.f53b7bf1.svg",
     "static/media/index.css": "/baseball-scorekeeper/static/media/oxygen-latin-700.2847cae5.woff2"
