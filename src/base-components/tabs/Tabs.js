@@ -4,6 +4,6 @@ import './Tabs.css';
 
 export const Tabs = ({labels, selectedLabel, onSelect}) => (
     <div className="tabs">
-        {labels.map(label => <Tab onSelect={onSelect} label={label} selected={label === selectedLabel}/>)}
+        {labels.map((label, index) => <Tab onSelect={onSelect} label={label} selected={label === selectedLabel} key={index}/>)}
     </div>
 );
