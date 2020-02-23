@@ -12,7 +12,7 @@ export const PlayerNames = ({players = [], onChange}) => {
 
             if(id < players.length) {
                 newPlayers[id] = player;
-            } else {
+            } else if(player.name !== "") {
                 newPlayers.push(player);
             }
 
