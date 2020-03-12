@@ -7,8 +7,20 @@
     position: absolute;
     bottom: 0;
     right: 0;
+    width: 30%;
+    height: 25%;
 }
 
 .result {
     text-align: center;
+}
+
+.large {
+    width: 50%;
+    background-color: white;
+    padding: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { EditableText } from './base-components';
 import { PitchCount } from './PitchCount';
 import { BaseballField } from './BaseballField';
+import { ComponentModal } from './base-components/modal/ComponentModal';
 import './Result.css';
 
-export const Result = React.memo(({inning, result, onChange}) => {
+export const Result = React.memo(({inning, result, onChange, isModal}) => {
 
     const farthestBase = (result && result.farthestBase) || 0;
     const count = (result && result.count) || { balls: 0, strikes: 0};
@@ -16,15 +17,13 @@ export const Result = React.memo(({inning, result, onChange}) => {
     }
 
     const handleCountChange = newCount => onChange({ count: newCount, farthestBase, result: play, inning });
+
     const handleResultChange = newResult => onChange({ count, farthestBase, result: newResult, inning });
     
     return (
-        <div className="wrapper">
+        <div className={`wrapper ${isModal ? 'large' : ''}`}>
             <div className="field">
-                <BaseballField onBaseClick={handleBaseClick} farthestBase={farthestBase}/>
-                <div className="count">
-                    <PitchCount onChange={handleCountChange} {...count}/>
-                </div>
+                <BaseballField onBaseClick={handleBaseClick} onCountChange={handleCountChange} count={count} farthestBase={farthestBase}/>
             </div>
             <div className="result" >
                 <EditableText onChange={handleResultChange} placeholder="result" value={play}/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Result } from './Result';
+import { ResultWrapper } from './ResultWrapper';
 import './Position.css';
 import { PlayerNames } from './PlayerNames';
 
@@ -19,7 +19,7 @@ export const Position = ({stats, onUpdate, number, innings = 9}) => {
 
     const playerComponents = Array.from({length: innings}, (e, i) => (
         <div key={`${number}-${i}`} className="inning">
-            <Result inning={i + 1} onChange={handleResultUpdate} result={stats && stats.results ? stats.results[i] : undefined}/>
+            <ResultWrapper inning={i + 1} onChange={handleResultUpdate} result={stats && stats.results ? stats.results[i] : undefined}/>
         </div>
     ));
         

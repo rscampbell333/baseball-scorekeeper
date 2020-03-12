@@ -1,12 +1,15 @@
 import React from 'react';
 import './BaseballField.css';
+import { PitchCount } from './PitchCount';
 
-export const BaseballField = ({farthestBase = 0, onBaseClick}) => {
+export const BaseballField = ({farthestBase = 0, count, onBaseClick, onCountChange}) => {
     const getBaseClass = (base) => base <= farthestBase ? 'base reached' : 'base'; 
 
     const handleBaseClick = (event) => {
         onBaseClick(parseInt(event.target.id));
     }
+
+    
 
     return <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 180">
         <g className="infield" transform="matrix(-0.7,-0.7,0.7,-0.7,115,180)">
@@ -23,5 +26,6 @@ export const BaseballField = ({farthestBase = 0, onBaseClick}) => {
                 <polygon id="4" name="home" className={getBaseClass(4)} points="0,0 18,0 26,8 8,26 0,18 0,0" fill="white" onClick={handleBaseClick}/>
             </g>
         </g>
+        {<PitchCount onChange={onCountChange} {...count}/>}
     </svg>;
 }

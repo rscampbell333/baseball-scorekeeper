@@ -1,8 +1,7 @@
 .pitchBox {
-    width: .5em;
-    height: .5em;
-    border: 1px solid;
-    margin: 2px;
+    fill: transparent;
+    stroke-width: 1;
+    stroke:black;
 }
 
 .flexbox {
@@ -11,5 +10,7 @@
 }
 
 .pitchBox.reached {
-    background: black;
+    fill: black;
+    stroke-width: 1;
+    stroke:black;
 }

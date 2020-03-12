@@ -4,6 +4,9 @@ import './PitchCount.css';
 
 export const PitchCount = React.memo(({onChange, balls = 0, strikes = 0}) => {
 
+    const x = 160;
+    const y = 140;
+
     const generatePitches = (count, total, type) => {
         const pitches = Array.from({length: total}).map((_, i) => <PitchBox key={i} type={type} reached={i + 1 <= count} updateCount={updateCount}/>);
         return pitches;
@@ -19,12 +22,15 @@ export const PitchCount = React.memo(({onChange, balls = 0, strikes = 0}) => {
         }
     };
 
-    return <div className="pitchCount">
-        <div className="balls flexbox">
-            {generatePitches(balls, 3, 'ball')}
-        </div>
-        <div className="strikes flexbox">
-            {generatePitches(strikes, 2, 'strike')}
-        </div>
-    </div>
+    return <g className="pitchCount" transform={`translate(${x}, ${y})`}>
+        <g className="balls flexbox">
+            <PitchBox type="ball" reached={1 <= balls} updateCount={updateCount} x={0} y={0}/>
+            <PitchBox type="ball" reached={2 <= balls} updateCount={updateCount} x={20} y={0}/>
+            <PitchBox type="ball" reached={3 <= balls} updateCount={updateCount} x={40} y={0}/>
+        </g>
+        <g className="strikes flexbox">
+            <PitchBox type="strike" reached={1 <= strikes} updateCount={updateCount} x={0} y={20}/>
+            <PitchBox type="strike" reached={2 <= strikes} updateCount={updateCount} x={20} y={20}/>
+        </g>
+    </g>
 });
