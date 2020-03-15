@@ -4,15 +4,15 @@
   "private": true,
   "homepage": "https://rscampbell333.github.io/baseball-scorekeeper",
   "dependencies": {
-    "gh-pages": "^2.1.1",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-scripts": "^3.1.1",
+    "gh-pages": "^2.2.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-scripts": "^3.4.0",
     "react-toggle": "^4.1.1",
     "typeface-oxygen": "0.0.72"
   },
   "devDependencies": {
-    "typescript": "^3.6.2"
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
