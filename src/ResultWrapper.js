@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Result } from './Result';
-import { ComponentModal } from './base-components/modal/ComponentModal';
+import { Modal } from './base-components';
 
 export const ResultWrapper = (props) => {
   
@@ -10,9 +10,12 @@ export const ResultWrapper = (props) => {
     <div onClick={() => setShowModal(true)}>
       <Result {...props}/>
       { showModal && 
-        <ComponentModal>
+        <Modal onCancel={() => {
+          setShowModal(false);
+          console.log('closing modal');
+        }}>
             <Result isModal={true} {...props}/>
-        </ComponentModal>
+        </Modal>
       }
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Modal } from './base-components';
+import { Table, TextModal } from './base-components';
 import './GameSelector.css';
 
 export const GameSelector = ({ onSelect }) => {
@@ -48,8 +48,10 @@ export const GameSelector = ({ onSelect }) => {
                 <a href="#" onClick={handleNewGame}>New game</a> or load existing game: 
             </div>
             <Table headers={['Home', 'Away', 'Date']} loading={loading} rows={rows} onSelect={onSelect} onDelete={handleDelete}/>
-            {showModal && <Modal onCancel={() => setShowModal(false)} 
-                   onSubmit={deleteGame} 
+            {showModal && <TextModal onCancel={() => setShowModal(false)} 
+                   onSubmit={deleteGame}
+                   showSubmitButton={true}
+                   showCancelButton={true} 
                    title="Delete Game" 
                    text="Do you really want to delete the game?"
                    submitLabel="Yes"

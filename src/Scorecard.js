@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Tabs } from './base-components';
+import { TextModal, Tabs } from './base-components';
 import { GameMetadata } from './GameMetadata';
 import { InningsGrid } from './InningsGrid';
 import { Menu, MenuButton, MenuToggle } from './base-components';
@@ -82,7 +82,13 @@ export const Scorecard = ({gameId, onReload}) => {
       { team === 'home' ? <GameMetadata team={homeTeam} onTeamChange={setHomeTeam} date={date} onDateChange={setDate} addInning={addInning} menu={menu}/> : <GameMetadata team={awayTeam} onTeamChange={setAwayTeam} date={date} onDateChange={setDate} addInning={addInning} menu={menu}/> }
       { team === 'home' ? <InningsGrid innings={innings} stats={homeStats} onChange={setHomeStats}/> : <InningsGrid innings={innings} stats={awayStats} onChange={setAwayStats}/> }
       <Tabs onSelect={setTeam} labels={['home', 'away']} selectedLabel={team}/>
-      { modalConfig.show && <Modal onSubmit={() => setModalConfig({show: false})} text={modalConfig.text} title={modalConfig.title} submitLabel="OK" error={modalConfig.error}/> }
+      { modalConfig.show && <TextModal onSubmit={() => setModalConfig({show: false})} 
+                                       showSubmitButton={true} 
+                                       text={modalConfig.text} 
+                                       title={modalConfig.title} 
+                                       submitLabel="OK" 
+                                       error={modalConfig.error}/> 
+      }
     </div>
   )
 }

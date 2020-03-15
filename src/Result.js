@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { EditableText } from './base-components';
-import { PitchCount } from './PitchCount';
 import { BaseballField } from './BaseballField';
-import { ComponentModal } from './base-components/modal/ComponentModal';
 import './Result.css';
 
 export const Result = React.memo(({inning, result, onChange, isModal}) => {

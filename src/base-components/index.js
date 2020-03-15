@@ -4,6 +4,7 @@ export * from './DatePicker';
 export * from './Controls';
 export * from './table/Table';
 export * from './modal/Modal';
+export * from './modal/TextModal';
 export * from './menu/Menu';
 export * from './menu/MenuButton';
 export * from './menu/MenuToggle';
