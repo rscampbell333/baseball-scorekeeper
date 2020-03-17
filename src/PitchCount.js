@@ -7,11 +7,6 @@ export const PitchCount = React.memo(({onChange, balls = 0, strikes = 0}) => {
     const x = 160;
     const y = 140;
 
-    const generatePitches = (count, total, type) => {
-        const pitches = Array.from({length: total}).map((_, i) => <PitchBox key={i} type={type} reached={i + 1 <= count} updateCount={updateCount}/>);
-        return pitches;
-    }
-
     const updateCount = (type, reached) => {
         if(type === 'ball') {
             const newBalls = reached ? balls + 1 : balls - 1;

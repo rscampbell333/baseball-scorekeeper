@@ -10,10 +10,7 @@ export const ResultWrapper = (props) => {
     <div onClick={() => setShowModal(true)}>
       <Result {...props}/>
       { showModal && 
-        <Modal onCancel={() => {
-          setShowModal(false);
-          console.log('closing modal');
-        }}>
+        <Modal onCancel={() => setShowModal(false)}>
             <Result isModal={true} {...props}/>
         </Modal>
       }

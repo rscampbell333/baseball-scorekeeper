@@ -17,7 +17,7 @@ export const Modal = ({ children,
             e.stopPropagation();
 
         }}>
-            <div className={`modal-box ${error ? 'error' : ''}`}>
+            <div className={`modal-box ${error ? 'error' : ''}`} onClick={(e) => e.stopPropagation()}>
                 { children }
                 <div className="buttons">
                     { showCancelButton && <button className="cancel-button" onClick={onCancel}>{cancelLabel ? cancelLabel : 'Cancel'}</button> }
