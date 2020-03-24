@@ -1,0 +1,13 @@
+.play-form {
+  display: flex;
+}
+
+.play {
+  margin: 0 auto;
+}
+
+.fielders {
+  border: 1px solid #000000;
+  width: 50%;
+  margin: 0 auto;
+}
