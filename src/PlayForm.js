@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
-import { EditableText } from './base-components/EditableText';
 import './PlayForm.css';
 
 const plays = [
@@ -29,17 +27,7 @@ const plays = [
   {value: 'E', label: 'E', fielders: true}
 ];
 
-const useStyles = makeStyles(theme => ({
-  formControl: {
-    margin: theme.spacing(1),
-    width: 120,
-  },
-}));
-
 export const PlayForm = ({result = {}, onChange}) => {
-  const classes = useStyles();
-
-  console.log(result);
   const [ fielders, setFielders ] = useState(result.fielders);
 
   const defaultPlay = plays.find(play => play.value === result.play) || '';
@@ -50,7 +38,7 @@ export const PlayForm = ({result = {}, onChange}) => {
 
   useEffect(() => {
     onChange({ play: play.value, fielders });
-  }, [play, fielders]);
+  }, [play, fielders, onChange]);
 
   return <div className="play-form">
     <FormControl className='play-form-input'>

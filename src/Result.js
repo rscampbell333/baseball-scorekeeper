@@ -1,5 +1,5 @@
 import React from 'react';
-import { EditableText } from './base-components';
+import { PlayForm } from './PlayForm';
 import { BaseballField } from './BaseballField';
 import './Result.css';
 
@@ -7,7 +7,7 @@ export const Result = React.memo(({inning, result, onChange, isModal}) => {
 
     const farthestBase = (result && result.farthestBase) || 0;
     const count = (result && result.count) || { balls: 0, strikes: 0};
-    const play = (result && result.result) || '';
+    const play = (result && result.result) || null;
 
     const handleBaseClick = base => {
         const newFarthestBase = base  <= farthestBase ? base - 1 : base;
@@ -24,7 +24,7 @@ export const Result = React.memo(({inning, result, onChange, isModal}) => {
                 <BaseballField onBaseClick={handleBaseClick} onCountChange={handleCountChange} count={count} farthestBase={farthestBase}/>
             </div>
             <div className="result" >
-                <EditableText onChange={handleResultChange} placeholder="result" value={play}/>
+                { isModal ? <PlayForm result={play} onChange={handleResultChange}/> : play ? <span>{play.play} {play.fielders}</span> : <span>&nbsp;</span>}
             </div>
         </div>
     )
