@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/baseball-scorekeeper/static/css/main.59e653d4.chunk.css",
-    "main.js": "/baseball-scorekeeper/static/js/main.99da2a29.chunk.js",
-    "main.js.map": "/baseball-scorekeeper/static/js/main.99da2a29.chunk.js.map",
+    "main.js": "/baseball-scorekeeper/static/js/main.b72b4ede.chunk.js",
+    "main.js.map": "/baseball-scorekeeper/static/js/main.b72b4ede.chunk.js.map",
     "runtime-main.js": "/baseball-scorekeeper/static/js/runtime-main.c9c60287.js",
     "runtime-main.js.map": "/baseball-scorekeeper/static/js/runtime-main.c9c60287.js.map",
     "static/css/2.478f1422.chunk.css": "/baseball-scorekeeper/static/css/2.478f1422.chunk.css",
     "static/js/2.d8996033.chunk.js": "/baseball-scorekeeper/static/js/2.d8996033.chunk.js",
     "static/js/2.d8996033.chunk.js.map": "/baseball-scorekeeper/static/js/2.d8996033.chunk.js.map",
     "index.html": "/baseball-scorekeeper/index.html",
-    "precache-manifest.ce270aba34b8dcacece0f5b1197d7203.js": "/baseball-scorekeeper/precache-manifest.ce270aba34b8dcacece0f5b1197d7203.js",
+    "precache-manifest.e03397eeb4370a867356bca65ae191de.js": "/baseball-scorekeeper/precache-manifest.e03397eeb4370a867356bca65ae191de.js",
     "service-worker.js": "/baseball-scorekeeper/service-worker.js",
     "static/css/2.478f1422.chunk.css.map": "/baseball-scorekeeper/static/css/2.478f1422.chunk.css.map",
     "static/css/main.59e653d4.chunk.css.map": "/baseball-scorekeeper/static/css/main.59e653d4.chunk.css.map",
@@ -23,6 +23,6 @@
     "static/css/2.478f1422.chunk.css",
     "static/js/2.d8996033.chunk.js",
     "static/css/main.59e653d4.chunk.css",
-    "static/js/main.99da2a29.chunk.js"
+    "static/js/main.b72b4ede.chunk.js"
   ]
 }
