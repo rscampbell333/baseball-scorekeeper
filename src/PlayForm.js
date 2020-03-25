@@ -27,7 +27,9 @@ const plays = [
   {value: 'E', label: 'E', fielders: true}
 ];
 
-export const PlayForm = ({result = {}, onChange}) => {
+export const PlayForm = ({result, onChange}) => {
+  result = result ? result : {};
+
   const [ fielders, setFielders ] = useState(result.fielders);
 
   const defaultPlay = plays.find(play => play.value === result.play) || '';
