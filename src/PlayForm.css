@@ -1,13 +1,16 @@
 .play-form {
   display: flex;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .play {
-  margin: 0 auto;
+  text-align: left;
 }
 
-.fielders {
-  border: 1px solid #000000;
-  width: 50%;
-  margin: 0 auto;
+.play-form > .play-form-input {
+  margin: 8px;
+  width: 25%;
+  text-align: left;
 }
+

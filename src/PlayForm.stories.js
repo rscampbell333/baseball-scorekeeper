@@ -3,7 +3,8 @@ import { PlayForm } from './PlayForm';
 
 export default {
   component: PlayForm,
-  title: 'Play Form'
+  title: 'Play Form',
+  decorators: [storyFn => <div style={{width: '30em', margin: '0 auto'}}>{storyFn()}</div>]
 };
 
-export const Default = () => <PlayForm/>;
+export const Default = () => <PlayForm onChange={() => {}}/>;

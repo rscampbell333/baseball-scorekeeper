@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://rscampbell333.github.io/baseball-scorekeeper",
   "dependencies": {
+    "@material-ui/core": "^4.9.7",
     "gh-pages": "^2.2.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
