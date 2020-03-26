@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import './PlayForm.css';
 
 const plays = [
+  {value: '', label: '', fielders: true},
   {value: '1B', label: '1B', fielders: false},
   {value: '2B', label: '2B', fielders: false},
   {value: '3B', label: '3B', fielders: false},
@@ -32,7 +33,7 @@ export const PlayForm = ({result, onChange}) => {
 
   const [ fielders, setFielders ] = useState(result.fielders);
 
-  const defaultPlay = plays.find(play => play.value === result.play) || '';
+  const defaultPlay = plays.find(play => play.value === result.play) || plays[0];
   const [ play, setPlay ] = useState(defaultPlay); 
 
   const handlePlayChange = event => setPlay(event.target.value);
@@ -44,7 +45,7 @@ export const PlayForm = ({result, onChange}) => {
 
   return <div className="play-form">
     <FormControl className='play-form-input'>
-      <InputLabel id='play-select-label'>Play</InputLabel>
+      <InputLabel id='play-select-label' shrink={true}>Play</InputLabel>
       <Select
         labelId='play-select-label'
         id='play-select'
@@ -54,18 +55,17 @@ export const PlayForm = ({result, onChange}) => {
         {plays.map(play => <MenuItem value={play} key={play.label}>{play.label}</MenuItem>)}
       </Select>
     </FormControl>
-    { play.fielders && 
-      <div className='play-form-input'>
-        <TextField 
-          required 
-          id='fielders' 
-          label='Fielders' 
-          value={fielders}
-          onChange={handleFielderChange}
-          InputLabelProps={{
-            shrink: true,
-          }}/>
-      </div>
-    }
+    <div className='play-form-input'>
+      <TextField 
+        required 
+        id='fielders' 
+        label='Fielders' 
+        value={fielders}
+        disabled={!play.fielders}
+        onChange={handleFielderChange}
+        InputLabelProps={{
+          shrink: true,
+        }}/>
+    </div>
   </div>;
 }
