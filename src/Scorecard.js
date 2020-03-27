@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { TextModal, Tabs } from './base-components';
 import { GameMetadata } from './GameMetadata';
 import { InningsGrid } from './InningsGrid';
 import { Menu, MenuButton, MenuToggle } from './base-components';
+import { ThemeContext } from './base-components/ThemeContext';
 
 export const Scorecard = ({gameId, onReload}) => {
   const [ id, setId ] = useState(gameId);
@@ -16,6 +17,8 @@ export const Scorecard = ({gameId, onReload}) => {
   const [ innings, setInnings ] = useState(9);
   const [ modalConfig, setModalConfig ] = useState({show: false});
   const [ isDarkMode, setIsDarkMode ] = useState(false);
+
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const saveGame = async() => {
     const method = id ? 'put' : 'post';
@@ -69,7 +72,7 @@ export const Scorecard = ({gameId, onReload}) => {
 
   const handleThemeToggle = (event) => {
     console.log(event);
-    setIsDarkMode(!isDarkMode);
+    setTheme(theme === 'light' ? 'dark' : 'light');
   }
 
   const menu = <Menu>
@@ -78,7 +81,7 @@ export const Scorecard = ({gameId, onReload}) => {
     <MenuToggle label="Dark mode" onChange={handleThemeToggle} defaultValue={isDarkMode}/>
   </Menu>;
 
-  return (!loading && <div className={isDarkMode ? 'dark' : 'light'}>
+  return (!loading && <div className={theme} id="top">
       { team === 'home' ? <GameMetadata team={homeTeam} onTeamChange={setHomeTeam} date={date} onDateChange={setDate} addInning={addInning} menu={menu}/> : <GameMetadata team={awayTeam} onTeamChange={setAwayTeam} date={date} onDateChange={setDate} addInning={addInning} menu={menu}/> }
       { team === 'home' ? <InningsGrid innings={innings} stats={homeStats} onChange={setHomeStats}/> : <InningsGrid innings={innings} stats={awayStats} onChange={setAwayStats}/> }
       <Tabs onSelect={setTeam} labels={['home', 'away']} selectedLabel={team}/>

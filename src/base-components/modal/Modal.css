@@ -14,7 +14,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     position: relative;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--modal-background-color);
     padding: 20px;
     border-left: 5px solid rgb(4, 119, 59);
 }

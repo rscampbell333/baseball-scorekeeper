@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { createPortal } from 'react-dom';
 import './Modal.css';
+import { ThemeContext } from '../ThemeContext';
 
 export const Modal = ({ children, 
                         onSubmit, 
@@ -11,8 +12,10 @@ export const Modal = ({ children,
                         showCancelButton = false, 
                         showSubmitButton = false 
                     }) => {
+    const { theme } = useContext(ThemeContext) || { theme: 'light' };
+    
     return createPortal(
-        <div className="modal" onClick={(e) => {
+        <div className={`modal ${theme}`} onClick={(e) => {
             onCancel();
             e.stopPropagation();
 

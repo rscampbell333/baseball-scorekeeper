@@ -36,6 +36,7 @@
   --menu-button-hover-color: #79c2ed;
   --menu-text-color: #ffffff;
   --unselected-tab-color: #6d7275;
+  --modal-background-color: #ffffff;
   color: var(--primary-text-color);
 }
 
@@ -50,5 +51,6 @@
   --menu-button-hover-color: #426d85;
   --menu-text-color: var(--primary-text-color);
   --unselected-tab-color: #6d7275;
+  --modal-background-color: #36393b;
   color: var(--primary-text-color);
 }
