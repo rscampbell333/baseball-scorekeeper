@@ -13,6 +13,12 @@ const App = () => {
   const materialTheme = createMuiTheme({
     palette: {
       type: theme
+    },
+    typography: {
+      fontFamily: [
+        "oxygen", 
+        "sans-serif"
+      ]
     }
   });
 

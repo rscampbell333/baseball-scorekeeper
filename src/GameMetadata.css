@@ -1,6 +1,6 @@
 .game-metadata {
     width: 100%;
-    height: 2em;
+    height: 3em;
     background-color: var(--primary-scorecard-color);
     box-sizing: border-box;
     display: flex;
