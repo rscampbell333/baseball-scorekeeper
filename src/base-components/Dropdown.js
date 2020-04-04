@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 export class Dropdown extends Component {
     
@@ -13,10 +16,10 @@ export class Dropdown extends Component {
     }
 
     render = () => (
-        <div className="select">
-            <select className={this.props.className} value={this.state.value} onChange={this.handleChange}>
-                { this.props.options.map((v, i) => <option value={v} key={i.toString()}>{v}</option>) }
-            </select>
-        </div>
+      <FormControl>
+        <Select className={this.props.className} value={this.state.value} onChange={this.handleChange} displayEmpty disableUnderline>
+          { this.props.options.map(option => <MenuItem value={option} id={option}>{option}</MenuItem>) }
+        </Select>
+      </FormControl>
     )
 }

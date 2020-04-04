@@ -13,7 +13,8 @@
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
     "react-toggle": "^4.1.1",
-    "typeface-oxygen": "0.0.72"
+    "typeface-oxygen": "0.0.72",
+    "typeface-roboto-mono": "0.0.75"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.17",

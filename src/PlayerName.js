@@ -13,6 +13,9 @@ export const PlayerName = ({ initName = "", initSince = 1, onChange, showInningS
 
     return <div className="player dashed-border-bottom">
         <EditableText value={name} onChange={setName} noValueClassName=""/>
-        { showInningSelection && <Dropdown value={initSince} onChange={setSince} options={Array.from({length: 9}, (v, k) => k+1)}/> }
+        { showInningSelection && <Dropdown  className="inning-select" 
+                                            value={initSince} 
+                                            onChange={setSince} 
+                                            options={Array.from({length: 9}, (v, k) => k+1)}/> }
     </div>
 }
