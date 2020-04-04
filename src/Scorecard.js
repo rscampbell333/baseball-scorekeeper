@@ -17,10 +17,12 @@ export const Scorecard = ({gameId, onReload}) => {
   const [ innings, setInnings ] = useState(9);
   const [ modalConfig, setModalConfig ] = useState({show: false});
   const [ isDarkMode, setIsDarkMode ] = useState(false);
+  const [ savingGame, setSavingGame ] = useState(false);
 
   const { theme, setTheme } = useContext(ThemeContext);
 
   const saveGame = async() => {
+    setSavingGame(true);
     const method = id ? 'put' : 'post';
 
     const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/scorekeeper/${id ? id : ''}`, {
@@ -43,6 +45,8 @@ export const Scorecard = ({gameId, onReload}) => {
     } else {
       setModalConfig({show: true, title: 'Error saving game', error: true });
     }
+
+    setSavingGame(false);
   }
 
   const addInning = () => {
@@ -76,7 +80,7 @@ export const Scorecard = ({gameId, onReload}) => {
   }
 
   const menu = <Menu>
-    <MenuButton label="Save" onClick={saveGame}/>
+    <MenuButton label="Save" onClick={saveGame} loading={savingGame}/>
     <MenuButton label="Load" onClick={onReload}/>
     <MenuToggle label="Dark mode" onChange={handleThemeToggle} defaultValue={isDarkMode}/>
   </Menu>;

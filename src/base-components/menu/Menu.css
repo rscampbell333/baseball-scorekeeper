@@ -20,18 +20,36 @@
     background-color: var(--menu-color);
 }
 
+.menu-item {
+    display: flex;
+    align-items: center;
+    height: 2em;
+    width: 100%;
+}
+
 .menu-button {
     padding: 5px;
+    width: 100%;
+    display: flex;
+}
+
+.menu-button-label {
+    margin-right: auto;
+}
+
+.menu-button > .loading-indicator {
+    align-self: center;
+    color: var(--menu-text-color);
 }
 
 .menu-toggle {
-    padding: 25px 5px;
+    padding: 0px 5px;
 }
 
 .menu-toggle {
     display: flex;
 }
 
-.menu-button:hover {
+.menu-item > .menu-button:hover {
     background-color: var(--menu-button-hover-color);
 }

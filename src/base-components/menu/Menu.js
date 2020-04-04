@@ -15,7 +15,7 @@ export const Menu = ({children}) => {
         </div>
         { open && 
             <div className="content">
-                {children.map((child, i) => <div key={i.toString()}>{ child }</div>)}
+                {children.map((child, i) => <div className="menu-item" key={i.toString()}>{ child }</div>)}
             </div>
         }
     </div>;
