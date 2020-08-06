@@ -11,6 +11,7 @@
 
 .player .inning-select {
     font-family: Roboto Mono, monospace;
+    margin-left: 5px;
 }
 
 .player > .select {

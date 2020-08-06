@@ -11,8 +11,8 @@
 }
 
 .left-column {
-  width: 10em;
-  min-width: 10em;
+  width: var(--left-column-width);
+  min-width: var(--left-column-width);
   box-sizing: border-box;
   background-color: var(--primary-scorecard-color);
   position: sticky;
@@ -23,6 +23,10 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.common {
+  --left-column-width: 12em;
 }
 
 .light {
