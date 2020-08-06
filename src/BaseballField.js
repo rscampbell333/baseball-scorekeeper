@@ -16,10 +16,10 @@ export const BaseballField = ({farthestBase = 0, count, onBaseClick, onCountChan
             <path className="dirt" d="M 0 0 L 160 0 A 160 140 45 0 1 0 160 L 0 0"/>
             <g className="bases">
                 <rect className="grass" y="0" width="100px" height="100px" x="0" />
-                { farthestBase >= 1 && <line x1="2" y1="18" x2="2" y2="80" className="base-line reached"/> }
-                { farthestBase >= 2 && <line x1="20" y1="98" x2="80" y2="98"  className="base-line reached"/> }
-                { farthestBase >= 3 && <line x1="98" y1="18" x2="98" y2="80"  className="base-line reached"/> }
-                { farthestBase >= 4 && <line x1="80" y1="2" x2="18" y2="2"  className="base-line reached"/> }
+                { farthestBase >= 1 && <line x1="2" y1="0" x2="2" y2="100" className="base-line reached"/> }
+                { farthestBase >= 2 && <line x1="0" y1="98" x2="100" y2="98"  className="base-line reached"/> }
+                { farthestBase >= 3 && <line x1="98" y1="0" x2="98" y2="100"  className="base-line reached"/> }
+                { farthestBase >= 4 && <line x1="100" y1="2" x2="0" y2="2"  className="base-line reached"/> }
                 <rect id="1" name="first" className={getBaseClass(1)} x="0" y="80" onClick={handleBaseClick}/>
                 <rect id="2" name="second" className={getBaseClass(2)} x="80" y="80" onClick={handleBaseClick}/>
                 <rect id="3" name="third" className={getBaseClass(3)} x="80" y="0" onClick={handleBaseClick}/>

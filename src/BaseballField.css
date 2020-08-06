@@ -10,6 +10,10 @@
     stroke-width: 4;
 }
 
+.base-line.reached {
+    stroke: #FDE74C;
+}
+
 .base {
     width: 20px;
     height: 20px;
@@ -17,6 +21,5 @@
 }
 
 .reached {
-    stroke: #FDE74C;
     fill: #FDE74C;
 }
