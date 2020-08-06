@@ -29,11 +29,13 @@ const App = () => {
 
   const reload = () => setLoading(true);
 
-  return <ThemeContext.Provider value={{theme, setTheme}}>
-    <ThemeProvider theme={materialTheme}>
-      { loading ? <GameSelector onSelect={handleGameSelect}/> : <Scorecard gameId={gameId} onReload={reload}/> }
-    </ThemeProvider>
-  </ThemeContext.Provider>
+  return <div className="common">
+      <ThemeContext.Provider value={{theme, setTheme}}>
+        <ThemeProvider theme={materialTheme}>
+        { loading ? <GameSelector onSelect={handleGameSelect}/> : <Scorecard gameId={gameId} onReload={reload}/> }
+      </ThemeProvider>
+    </ThemeContext.Provider>
+  </div>
 }
 
 export default App;
