@@ -2,6 +2,10 @@
     fill: #138A36;
 }
 
+.grass.scored {
+    fill: var(--base-reached-color);
+}
+
 .dirt {
     fill: #CD5C1F;
 }
@@ -11,7 +15,7 @@
 }
 
 .base-line.reached {
-    stroke: #FDE74C;
+    stroke: var(--base-reached-color);
 }
 
 .base {
@@ -21,5 +25,5 @@
 }
 
 .reached {
-    fill: #FDE74C;
+    fill: var(--base-reached-color);
 }

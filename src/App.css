@@ -41,6 +41,7 @@
   --menu-text-color: #ffffff;
   --unselected-tab-color: #6d7275;
   --modal-background-color: #ffffff;
+  --base-reached-color: #364156;
   color: var(--primary-text-color);
 }
 

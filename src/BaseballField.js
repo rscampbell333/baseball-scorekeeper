@@ -15,7 +15,7 @@ export const BaseballField = ({farthestBase = 0, count, onBaseClick, onCountChan
         <g className="infield" transform="matrix(-0.7,-0.7,0.7,-0.7,115,180)">
             <path className="dirt" d="M 0 0 L 160 0 A 160 140 45 0 1 0 160 L 0 0"/>
             <g className="bases">
-                <rect className="grass" y="0" width="100px" height="100px" x="0" />
+                <rect className={`grass ${farthestBase == 4 ? 'scored' : ''}`} y="0" width="100px" height="100px" x="0" />
                 { farthestBase >= 1 && <line x1="2" y1="0" x2="2" y2="100" className="base-line reached"/> }
                 { farthestBase >= 2 && <line x1="0" y1="98" x2="100" y2="98"  className="base-line reached"/> }
                 { farthestBase >= 3 && <line x1="98" y1="0" x2="98" y2="100"  className="base-line reached"/> }
