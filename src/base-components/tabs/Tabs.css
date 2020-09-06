@@ -3,7 +3,7 @@
     width: 100%;
     position: fixed;
     bottom: 0;
-    background-color: var(--primary-scorecard-color);
+    background-color: var(--metadata-color);
     z-index: 1000;
     display: flex;
 }
