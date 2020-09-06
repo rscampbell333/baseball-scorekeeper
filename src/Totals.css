@@ -1,0 +1,23 @@
+.totals {
+  display: flex;
+  position: sticky;
+  bottom: 2em;
+}
+
+.inning-data {
+  display: flex;
+}
+
+.inning-total {
+  display: flex;
+  background-color: var(--alt-scorecard-color);
+}
+
+.inning-total:nth-child(even) {
+  background-color: var(--primary-scorecard-color);
+}
+
+.total {
+  width: 33%;
+  margin-left: 5px;
+}

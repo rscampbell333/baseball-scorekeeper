@@ -3,6 +3,7 @@ import { usePrevious } from './hooks';
 import { Position } from './Position.js';
 import './InningsGrid.css';
 import { Header } from './Header'; 
+import { Totals } from './Totals';
 
 export const InningsGrid = ({ onChange, innings, stats = Array.from({length: 9}, (v, i) => ({})) }) => {
     
@@ -28,5 +29,6 @@ export const InningsGrid = ({ onChange, innings, stats = Array.from({length: 9},
         <div className="grid">
             {positions}
         </div>
+        <Totals stats={stats}/>
     </div>;
 }

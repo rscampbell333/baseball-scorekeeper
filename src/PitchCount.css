@@ -1,7 +1,7 @@
 .pitchBox {
     fill: transparent;
     stroke-width: 1;
-    stroke:black;
+    stroke: var(--base-reached-color);
 }
 
 .flexbox {
@@ -10,7 +10,7 @@
 }
 
 .pitchBox.reached {
-    fill: black;
+    fill: var(--base-reached-color);;
     stroke-width: 1;
-    stroke:black;
+    stroke: var(--base-reached-color);;
 }

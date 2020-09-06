@@ -10,7 +10,8 @@ const style = {
   height: "100vh",
   width: "100vw",
   overflowY: "scroll",
-  padding: "10px"
+  padding: "10px",
+  boxSizing: "border-box"
 };
 
 addDecorator(storyFn => <div className="light" style={style}>{storyFn()}</div>);
