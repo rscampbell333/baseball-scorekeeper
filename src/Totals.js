@@ -23,7 +23,7 @@ export const Totals = ({ stats }) => {
 
         const inningTotal = inningTotals[inning - 1];
 
-        if(farthestBase == 4) {
+        if(farthestBase === 4) {
           inningTotal.runs++;
         }
 
@@ -32,7 +32,7 @@ export const Totals = ({ stats }) => {
             inningTotal.hits++;
           }
 
-          if(result.play.indexOf('E') == 0) {
+          if(result.play.indexOf('E') === 0) {
             inningTotal.errors++;
           }
         }

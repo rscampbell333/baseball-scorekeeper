@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export const InningTotals = ({ runs = 0, hits = 0, errors = 0}) => <div className="inning inning-total">
   <div className="total"><strong>R</strong> { runs }</div>
