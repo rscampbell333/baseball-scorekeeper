@@ -64,8 +64,11 @@ export const Scorecard = ({gameId, onReload}) => {
         setAwayTeam(game.metadata.awayTeam);
         setHomeStats(game.innings.home);
         setAwayStats(game.innings.away)
-        const innings = game.innings && game.innings[0] && game.innings[0].results.length >= 9 ? game.innings[0].results.length : 9;
-        setInnings(innings);
+
+        let innings = game.innings.home.reduce((max, current) => Math.max(max, current.results.length), 0);
+        innings = game.innings.away.reduce((max, current) => Math.max(max, current.results.length), innings);
+
+        setInnings(innings > 9 ? innings : 9);
       }
       
       setLoading(false);
