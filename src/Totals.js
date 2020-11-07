@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import { InningTotals } from './InningTotals';
+import { isHit } from './utils/utils';
 import './Totals.css';
-
-const hitPlays = new Set();
-hitPlays.add('1B');
-hitPlays.add('2B');
-hitPlays.add('3B');
-hitPlays.add('HR');
 
 export const Totals = ({ stats }) => {
   const inningTotals = Array.from({length: 9}, f => ({runs: 0, hits: 0, errors: 0}));
@@ -28,7 +23,7 @@ export const Totals = ({ stats }) => {
         }
 
         if(result) {
-          if(hitPlays.has(result.play)) {
+          if(isHit(result.play)) {
             inningTotal.hits++;
           }
 
@@ -45,7 +40,7 @@ export const Totals = ({ stats }) => {
     <div className="left-column">
     </div>
     <div className="inning-data">
-      { inningTotals.map((inningTotal) => <InningTotals {...inningTotal}/>)}
+      { inningTotals.map((inningTotal, i) => <InningTotals {...inningTotal} key={i}/>)}
     </div>
   </div>
 }

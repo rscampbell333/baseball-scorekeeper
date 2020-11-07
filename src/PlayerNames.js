@@ -5,7 +5,6 @@ import './PlayerNames.css';
 export const PlayerNames = ({players = [], onChange}) => {
 
     const handlePlayerUpdate = (player, id) => {
-        console.log(player);
         //only store and update if there is a value
         if(id === players.length || (player.name  && player.name !== players[id].name)
             || (player.since !== players[id].since) || player.fieldPosition !== players[id].fieldPosition) {

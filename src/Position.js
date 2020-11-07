@@ -1,7 +1,8 @@
 import React from 'react';
 import { ResultWrapper } from './ResultWrapper';
-import './Position.css';
 import { PlayerNames } from './PlayerNames';
+import { isHit } from './utils/utils';
+import './Position.css';
 
 export const Position = ({stats, onUpdate, number, innings = 9}) => {
 
@@ -22,6 +23,28 @@ export const Position = ({stats, onUpdate, number, innings = 9}) => {
             <ResultWrapper inning={i + 1} onChange={handleResultUpdate} result={stats && stats.results ? stats.results[i] : undefined}/>
         </div>
     ));
+
+    const totals = results.reduce((acc, current) => {
+        if(current) {
+            const { farthestBase, result } = current;
+
+            if(farthestBase === 4) {
+                acc.runs++;
+            }
+
+            if(result) {
+                if(isHit(result.play)) {
+                    acc.hits++;
+                }
+
+                if(result.play.indexOf('E') === 0) {
+                    acc.errors++;
+                }
+            }
+        }
+
+        return acc;
+    }, { runs: 0, hits: 0, errors: 0 });
         
     return <div className="position">
         <div className="players left-column">
