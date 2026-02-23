@@ -9,20 +9,20 @@
     "@material-ui/lab": "^4.0.0-alpha.48",
     "@material-ui/pickers": "^3.2.10",
     "date-fns": "^2.11.1",
-    "gh-pages": "^2.2.0",
+    "gh-pages": "^5.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1",
+    "react-scripts": "^5.0.1",
     "react-toggle": "^4.1.1",
     "typeface-oxygen": "0.0.72",
     "typeface-roboto-mono": "0.0.75"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-actions": "^9.0.8",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/preset-create-react-app": "^2.1.1",
-    "@storybook/react": "^5.3.18",
+    "@storybook/react": "^10.2.10",
     "typescript": "^3.8.3"
   },
   "scripts": {
